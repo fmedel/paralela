@@ -1,0 +1,8 @@
+sudo apt­-get install openssh-server --> ssh
+ssh-keygen-t rsa -b 2048
+
+scp ~/.ssh/id_rsa.pub usuario#@IP:/home/paralela_nueva/.ssh/authorized_keys ---> primera vez
+o
+scp ~/.ssh/id_rsa.pub usuario#@IP:/home/paralela_nueva/.ssh/authorized_keys2 --> todas las demas
+cat authorized_keys2>> authorized_keys
+ http://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/
