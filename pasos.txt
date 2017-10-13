@@ -5,4 +5,9 @@ scp ~/.ssh/id_rsa.pub usuario#@IP:/home/paralela_nueva/.ssh/authorized_keys --->
 o
 scp ~/.ssh/id_rsa.pub usuario#@IP:/home/paralela_nueva/.ssh/authorized_keys2 --> todas las demas
 cat authorized_keys2>> authorized_keys
+ 
  http://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/
+ 
+ sudo nano ~/.bashrc
+ alias apagar="sudo shutdown -r now"
+ source ~/.bashrc
