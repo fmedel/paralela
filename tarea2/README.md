@@ -32,6 +32,9 @@ sudo apt-get install libpng-dev
 For zlib, run:
 <br>
 sudo apt-get install zlib1g-dev
+<br>
+sudo apt-get install libpng16-dev
+
 <hr>
 Ubuntu
 <br>
