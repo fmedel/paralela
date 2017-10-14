@@ -21,22 +21,25 @@ void leer_archivo(){
   if (archivo15001_20000==NULL){std::cout << "error en archivo t4"<< '\n';}
   int A1=0,A2=0,A3=0,A4=0;
   char line[200];
-  
+
   while (fgets(line, sizeof(line), archivo)){
     n++;
     m=atoi(line);
       if (m>=0 and m<=500000){
       fprintf(archivo0_5000, "%s",line );
       A1++;}
-      if (m>=500000 and m<=1000000){
+      else if (m>=500000 and m<=1000000){
       fprintf(archivo5001_10000, "%s",line );
       A2++;}
-      if (m>=1000000 and m<=1500000){
+      else if (m>=1000000 and m<=1500000){
       fprintf(archivo10001_15000, "%s",line );
       A3++;}
-      if (m>1500000){
+      else if (m>1500000){
       fprintf(archivo15001_20000, "%s",line );
       A4++;}
+      else {
+        std::cout << line << '\n';
+      }
     }
   fclose(archivo);
   fclose(archivo0_5000);
