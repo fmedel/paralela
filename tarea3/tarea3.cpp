@@ -6,81 +6,49 @@
 #include <sstream>
 
 using namespace std;
-int Separar(char* direcion_del_archivo) {
-  char line[20];
-  int lineas=0;
-  int archivo2=0;
-  string inicio ("fichero");
-  string final_s (".txt");
-  string archivo_nombre;
-  std::stringstream sstm;
-  sstm << inicio << archivo2<<final_s;
-  archivo_nombre = sstm.str();
-  FILE *archivo = fopen(direcion_del_archivo, "r");
-  FILE *fp;
-  fp = fopen ( archivo_nombre.c_str(), "w" );
-  if (fp==NULL) {fputs ("Error",stderr); exit (1);}
-  while(fgets(line, sizeof(line), archivo)){
-      fprintf(fp,(char*)line);
-      if(lineas==100000){
-        archivo2++;
-        sstm.str("");
-        sstm << inicio << archivo2<<final_s;
-        archivo_nombre = sstm.str();
-        fclose (fp);
-        fp = fopen (archivo_nombre.c_str(), "w" );
-        if (fp==NULL) {fputs ("Error",stderr); exit (1);}
-        lineas=0;
-        continue;
-      }
-      lineas++;
-  }
-  fclose (fp);
-  fclose(archivo);
-  return archivo2;
-}
 
-void leer_archivo(char* direcion_temporal, long &suma, long &filas){
-  int m=0;
-  FILE *archivo = fopen(direcion_temporal, "r");
+void leer_archivo(){
+  int m=0,n=0;
+  FILE *archivo0_5000=fopen("t1.csv", "w");
+  FILE *archivo5001_10000=fopen("t2.csv", "w");
+  FILE *archivo10001_15000=fopen("t3.csv", "w");;
+  FILE *archivo15001_20000=fopen("t4.csv", "w");;
+  FILE *archivo = fopen("datos.csv", "r");
+  if (archivo==NULL){std::cout << "error en archivo"<< '\n';}
+  if (archivo0_5000==NULL){std::cout << "error en archivo t1"<< '\n';}
+  if (archivo5001_10000==NULL){std::cout << "error en archivo t2"<< '\n';}
+  if (archivo10001_15000==NULL){std::cout << "error en archivo t3"<< '\n';}
+  if (archivo15001_20000==NULL){std::cout << "error en archivo t4"<< '\n';}
+  int A1=0,A2=0,A3=0,A4=0;
   char line[200];
-  while (fgets(line, sizeof(line), archivo)){m++;
-    suma+=atoi(line);
-  }
+  
+  while (fgets(line, sizeof(line), archivo)){
+    n++;
+    m=atoi(line);
+      if (m>=0 and m<=500000){
+      fprintf(archivo0_5000, "%s",line );
+      A1++;}
+      if (m>=500000 and m<=1000000){
+      fprintf(archivo5001_10000, "%s",line );
+      A2++;}
+      if (m>=1000000 and m<=1500000){
+      fprintf(archivo10001_15000, "%s",line );
+      A3++;}
+      if (m>1500000){
+      fprintf(archivo15001_20000, "%s",line );
+      A4++;}
+    }
   fclose(archivo);
-  filas+=m;
+  fclose(archivo0_5000);
+  fclose(archivo5001_10000);
+  fclose(archivo10001_15000);
+  fclose(archivo15001_20000);
+  std::cout << n <<"-"<<A1+A2+A3+A4<<'\n';
 }
 
 int main(int argumentos, char *datos[]) {
-  long suma=0;
-  long filas=0;
-  int archivos=0;
-  int contador=0;
-  char* direcion_del_archivo = datos[1];
-  if (argumentos !=2 ) {
-    printf("faltan argumentos\n");
-    printf("tarea1 <ruta del log>\n");
-  } else {
-    archivos=Separar(direcion_del_archivo);
-    while (contador<=archivos) {
-      string inicio ("fichero");
-      string final_s (".txt");
-      string archivo_nombre;
-      std::stringstream sstm;
-      sstm << inicio << contador<<final_s;
-      archivo_nombre = sstm.str();
-      /*std::cout << archivo_nombre << '\n';*/
-      leer_archivo((char*)archivo_nombre.c_str(),suma,filas);
-      remove(archivo_nombre.c_str());
-      sstm.str("");
-       contador++;
-    }
-    if (contador!=0) {
-      std::cout <<"la suma es :"<<suma<< '\n';
-      std::cout <<"la cantidad de numero son: "<<filas << '\n';
-      std::cout <<"promedio es: "<<(double)suma/filas << '\n';
-    }
+    leer_archivo();
   	cout<<"calculo listo "<<endl;
-    }
+
   return 0;
 }
