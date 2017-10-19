@@ -4,4 +4,4 @@ run : compilar #un solo pc multiple nodo
 compilar: tarea3.cpp
 	mpicxx tarea3.cpp -o programa
 clean:
-	rm programa rm *.csv
+	 programa rm *.csv

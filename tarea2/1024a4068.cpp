@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 using namespace std;
-const int width =1024, height =768; //1024 768 ---> 4096 2160 --->4:2.8
+const int width =1366, height =768; //1024 768 ---> 4096 2160 --->4:2.8
 void pasar_ancho(){
   ofstream tep("monica_t.txt");
   char line[200];

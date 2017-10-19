@@ -1,5 +1,21 @@
 
 using namespace std;
+long menor(long dato1 ,long dato2){
+  if (dato2>dato1) {
+    return dato1;
+  }
+  else{
+    return dato2;
+  }
+}
+long mayor(long dato1, long dato2){
+  if (dato2<dato1) {
+    return dato2;
+  }
+  else{
+    return dato1;
+  }
+}
 void union_arreglos(long areglo[4],long arregloA[10],long arregloMenor[9],long arreglomayor[9]){
   long total=0;
   long minimo=999999999999999999;
@@ -233,6 +249,26 @@ void separ_archivo(long areglo[4], long datos_int, int archivo_tem, long arreglo
         }
       }
       else {
+          /*std::cout << "---------------------------" << '\n';
+          std::cout << "Arr " <<areglo[0]<< '\n';
+          std::cout << "Arr " <<areglo[1]<< '\n';
+          std::cout << "Arr " <<areglo[2]<< '\n';
+          std::cout << "Arr " <<areglo[3]<< '\n';
+          std::cout<<"datos "<<datos_int<<"\n";
+          std::cout<<"archiv "<<archivo_tem<<"\n";
+          for (int i = 0; i < 10; i++) {
+            std::cout<<"A " <<arregloA[i]<<'\n';
+          }
+          for (int i = 0; i < 9; i++) {
+            std::cout<<"menor "<<arregloMenor[i]<<'\n';
+          }
+          for (int i = 0; i < 9; i++) {
+            std::cout<<"mayor "<<arreglomayor[i]<<'\n';
+          }
+
+          std::cout<<"numpr "<<numprocs<<"\n";
+          std::cout<<"myid "<<myid<<"\n";*/
+
          std::cout <<"error aqui "<< m << '\n';
          A10++;
          exit(0);
