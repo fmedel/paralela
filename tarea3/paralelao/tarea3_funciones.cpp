@@ -1,5 +1,33 @@
 
 using namespace std;
+void unir_archivo(int archivo,int procesos){
+  FILE *fp;
+  char str[20];
+  char str2[20];
+  char str3[20];
+  sprintf(str2,"%d",archivo);
+  strcpy(str3,str2);
+  strcat(str3,".csv");
+  long m=0;
+  FILE *fp2=fopen(str3,"w");
+  if (fp2==NULL){std::cout << "error en archivo"<< '\n';exit(0);}
+  for (int i = 0; i < procesos; i++) {
+    sprintf(str, "%d", i);
+    strcat(str,"/t");
+    strcat(str,str2);
+    strcat(str,".csv");
+    fp=fopen(str, "r");
+    if (fp==NULL){std::cout << "error en archivo"<< '\n';exit(0);}
+    char line[200];
+    while (fgets(line, sizeof(line),fp)) {
+      m=atoi(line);
+      fprintf(fp2, "%s",line );
+    }
+    fclose(fp);
+  }
+  fclose(fp2);
+}
+
 long menor(long dato1 ,long dato2){
   if (dato2>dato1) {
     return dato1;
@@ -8,6 +36,7 @@ long menor(long dato1 ,long dato2){
     return dato2;
   }
 }
+
 long mayor(long dato1, long dato2){
   if (dato2<dato1) {
     return dato2;
@@ -16,6 +45,7 @@ long mayor(long dato1, long dato2){
     return dato1;
   }
 }
+
 void union_arreglos(long areglo[4],long arregloA[10],long arregloMenor[9],long arreglomayor[9]){
   long total=0;
   long minimo=999999999999999999;
@@ -249,29 +279,17 @@ void separ_archivo(long areglo[4], long datos_int, int archivo_tem, long arreglo
         }
       }
       else {
-          /*std::cout << "---------------------------" << '\n';
-          std::cout << "Arr " <<areglo[0]<< '\n';
-          std::cout << "Arr " <<areglo[1]<< '\n';
-          std::cout << "Arr " <<areglo[2]<< '\n';
-          std::cout << "Arr " <<areglo[3]<< '\n';
-          std::cout<<"datos "<<datos_int<<"\n";
-          std::cout<<"archiv "<<archivo_tem<<"\n";
-          for (int i = 0; i < 10; i++) {
-            std::cout<<"A " <<arregloA[i]<<'\n';
-          }
-          for (int i = 0; i < 9; i++) {
-            std::cout<<"menor "<<arregloMenor[i]<<'\n';
-          }
-          for (int i = 0; i < 9; i++) {
-            std::cout<<"mayor "<<arreglomayor[i]<<'\n';
-          }
-
-          std::cout<<"numpr "<<numprocs<<"\n";
-          std::cout<<"myid "<<myid<<"\n";*/
-
-         std::cout <<"error aqui "<< m << '\n';
+      /*  std::cout << "id " <<myid<< '\n';
+        std::cout << "prueba" <<((datos_int*9)+areglo[2])<< '\n';
+        std::cout << "menor" <<arregloMenor[3]<< '\n';
+        std::cout << "mayor" <<arreglomayor[3]<< '\n';
+        std::cout << "minimo " <<areglo[2]<< '\n';
+        std::cout << "maximo " <<areglo[3]<< '\n';
+        std::cout << "datos_int " <<datos_int<< '\n';
+        std::cout << "archivo " <<archivo_tem<< '\n';
+        std::cout << "error aqui no entra " <<m<< '\n';*/
          A10++;
-         exit(0);
+        /* exit(0);*/
       }
     }
   fclose(fp);
@@ -324,19 +342,20 @@ void separ_archivo(long areglo[4], long datos_int, int archivo_tem, long arreglo
   std::cout << ";"<< A9 ;
   std::cout << ";"<< A10 ;
   std::cout << ";" << A1+A2+A3+A4+A5+A6+A7+A8+A9+A10 <<'\n';
-  if (archivo_tem==0) {
-    /*std::cout << "entro" << '\n';*/
+  /*if (archivo_tem==0) {
+    /*std::cout << "entro" << '\n';
     union_arreglos(areglo,arregloA,arregloMenor,arreglomayor);
-  }
+  }*/
 }
 
 int elegir_archivo (long areglo[4],int archivo_tem,long A[10],long menorA[9],long mayorA[9]){
   long m=0;
-  if (archivo_tem==0) {
+/*  if (archivo_tem==0) {
     m=areglo[0]/2;
   } else {
     m=areglo[1];
-  }
+  }*/
+  m=areglo[1];
   if (m<A[0]) {
       areglo[0]=A[0];
       areglo[1]=m;
@@ -404,23 +423,23 @@ int media(int archivo_tem,int datos,int iteraciones){
   int n=0;
   FILE *archivo;
   if (archivo_tem == 1) {
-    archivo= fopen("0/t1.csv", "r");
+    archivo= fopen("1.csv", "r");
   }else if (archivo_tem == 2) {
-    archivo= fopen("0/t2.csv", "r");
+    archivo= fopen("2.csv", "r");
   }else if (archivo_tem == 3) {
-    archivo= fopen("0/t3.csv", "r");
+    archivo= fopen("3.csv", "r");
   }else if (archivo_tem == 4) {
-    archivo= fopen("0/t4.csv", "r");
+    archivo= fopen("4.csv", "r");
   }else if (archivo_tem == 5) {
-    archivo= fopen("0/t5.csv", "r");
+    archivo= fopen("5.csv", "r");
   }else if (archivo_tem == 6) {
-    archivo= fopen("0/t6.csv", "r");
+    archivo= fopen("6.csv", "r");
   }else if (archivo_tem == 7) {
-    archivo= fopen("0/t7.csv", "r");
+    archivo= fopen("7.csv", "r");
   }else if (archivo_tem == 8) {
-    archivo= fopen("0/t8.csv", "r");
+    archivo= fopen("8.csv", "r");
   }else if (archivo_tem == 9) {
-    archivo= fopen("0/t9.csv", "r");
+    archivo= fopen("9.csv", "r");
   }
   else {
     std::cout << "Error al abrir archivo media" << '\n';

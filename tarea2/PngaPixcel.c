@@ -1,151 +1,92 @@
-/*- pngpixel
- *
- * COPYRIGHT: Written by John Cunningham Bowler, 2011.
- * To the extent possible under law, the author has waived all copyright and
- * related or neighboring rights to this work.  This work is published from:
- * United States.
- *
- * Read a single pixel value from a PNG file.
- *
- * This code illustrates basic 'by-row' reading of a PNG file using libpng.
- * Rows are read until a particular pixel is found; the value of this pixel is
- * then printed on stdout.
- *
- * The code illustrates how to do this on interlaced as well as non-interlaced
- * images.  Normally you would call png_set_interlace_handling() to have libpng
- * deal with the interlace for you, but that obliges you to buffer half of the
- * image to assemble the interlaced rows.  In this code
- * png_set_interlace_handling() is not called and, instead, the code handles the
- * interlace passes directly looking for the required pixel.
- */
+/*
+archivo modificado de
+https://github.com/glennrp/libpng/blob/libpng16/contrib/examples/pngpixel.c
+
+*/
 #include <stdlib.h>
 #include <stdio.h>
-#include <setjmp.h> /* required for error handling */
+#include <setjmp.h> /* necesario para el manejo de errores */
+#include <png.h>
 
-/* Normally use <png.h> here to get the installed libpng, but this is done to
- * ensure the code picks up the local libpng implementation:
- */
-#include "png.h"
 
 #if defined(PNG_READ_SUPPORTED) && defined(PNG_SEQUENTIAL_READ_SUPPORTED)
 
-/* Return component 'c' of pixel 'x' from the given row. */
-static unsigned int
-component(png_const_bytep row, png_uint_32 x, unsigned int c,
-   unsigned int bit_depth, unsigned int channels)
-{
-   /* PNG images can be up to 2^31 pixels wide, but this means they can be up to
-    * 2^37 bits wide (for a 64-bit pixel - the largest possible) and hence 2^34
-    * bytes wide.  Since the row fitted into memory, however, the following must
-    * work:
-    */
+/* Devuelve el componente 'c' del píxel 'x' de la fila dada. */
+static unsigned int component(png_const_bytep row, png_uint_32 x, unsigned int c, unsigned int bit_depth, unsigned int channels){
+  /* Las imágenes PNG pueden tener hasta 2 ^ 31 píxeles de ancho, pero esto significa que pueden llegar hasta
+      * 2 ^ 37 bits de ancho (para un píxel de 64 bits - el más grande posible) y por lo tanto 2 ^ 34
+      * bytes de ancho. Dado que la fila instalada en la memoria, sin embargo, los siguientes deben
+      * trabajo:
+  */
    png_uint_32 bit_offset_hi = bit_depth * ((x >> 6) * channels);
    png_uint_32 bit_offset_lo = bit_depth * ((x & 0x3f) * channels + c);
-
    row = (png_const_bytep)(((PNG_CONST png_byte (*)[8])row) + bit_offset_hi);
    row += bit_offset_lo >> 3;
    bit_offset_lo &= 0x07;
 
-   /* PNG pixels are packed into bytes to put the first pixel in the highest
-    * bits of the byte and into two bytes for 16-bit values with the high 8 bits
-    * first, so:
-    */
-   switch (bit_depth)
-   {
+   /* PNG píxeles se empaquetan en bytes para poner el primer píxel en el más alto
+     * bits derl byte y en dos bytes para valores de 16 bits con los 8 bits altos
+     * primero, así que:
+   */
+   switch (bit_depth){
       case 1: return (row[0] >> (7-bit_offset_lo)) & 0x01;
       case 2: return (row[0] >> (6-bit_offset_lo)) & 0x03;
       case 4: return (row[0] >> (4-bit_offset_lo)) & 0x0f;
       case 8: return row[0];
       case 16: return (row[0] << 8) + row[1];
       default:
-         /* This should never happen; it indicates a bug in this program or in
-          * libpng itself:
-          */
-         fprintf(stderr, "pngpixel: invalid bit depth %u\n", bit_depth);
+      /* Esto nunca debe suceder; indica un error en este programa o en
+        * libpng en sí:
+      */
+         fprintf(stderr, "pngpixel: profundidad de bits no válida %u\n", bit_depth);
          exit(1);
    }
 }
 
-/* Print a pixel from a row returned by libpng; determine the row format, find
- * the pixel, and print the relevant information to stdout.
+/*Imprime un píxel de una fila devuelta por libpng; determinar el formato de la fila, buscar
+ * el píxel, e imprimir la información relevante a stdout.
  */
-static void
-print_pixel(png_structp png_ptr, png_infop info_ptr, png_const_bytep row,
-   png_uint_32 x)
-{
+static void print_pixel(png_structp png_ptr, png_infop info_ptr, png_const_bytep row,png_uint_32 x) {
    PNG_CONST unsigned int bit_depth = png_get_bit_depth(png_ptr, info_ptr);
    FILE *fp;
-    fp = fopen ( "monica_original.txt", "a" );/* imprimir  los pixcel */
-   switch (png_get_color_type(png_ptr, info_ptr))
-   {
-      case PNG_COLOR_TYPE_GRAY:
-        if ( component(row, x, 0, bit_depth, 1) == 0) {
-            fprintf(fp, "%d %d %d\n",0,0,0 );
-        }else{
-            fprintf(fp, "%d %d %d\n",255,255,255 );
-        }
-         //printf("GRAY %u\n", component(row, x, 0, bit_depth, 1));
-         fclose ( fp );
-         return;
-
-      /* The palette case is slightly more difficult - the palette and, if
-       * present, the tRNS ('transparency', though the values are really
-       * opacity) data must be read to give the full picture:
-       */
-      case PNG_COLOR_TYPE_PALETTE:
-         {
-            PNG_CONST int index = component(row, x, 0, bit_depth, 1);
-            png_colorp palette = NULL;
-            int num_palette = 0;
-
-            if ((png_get_PLTE(png_ptr, info_ptr, &palette, &num_palette) &
-               PNG_INFO_PLTE) && num_palette > 0 && palette != NULL)
-            {
-               png_bytep trans_alpha = NULL;
-               int num_trans = 0;
-               if ((png_get_tRNS(png_ptr, info_ptr, &trans_alpha, &num_trans,
-                  NULL) & PNG_INFO_tRNS) && num_trans > 0 &&
-                  trans_alpha != NULL)
-                  printf("INDEXED %u = %d %d %d %d\n", index,
-                     palette[index].red, palette[index].green,
-                     palette[index].blue,
-                     index < num_trans ? trans_alpha[index] : 255);
-
-               else /* no transparency */
-                  printf("INDEXED %u = %d %d %d\n", index,
-                     palette[index].red, palette[index].green,
-                     palette[index].blue);
-            }
-
-            else
-               printf("INDEXED %u = invalid index\n", index);
-         }
-         return;
-
-      case PNG_COLOR_TYPE_RGB:
-         printf("RGB %u %u %u\n", component(row, x, 0, bit_depth, 3),
-            component(row, x, 1, bit_depth, 3),
-            component(row, x, 2, bit_depth, 3));
-         return;
-
-      case PNG_COLOR_TYPE_GRAY_ALPHA:
-         printf("GRAY+ALPHA %u %u\n", component(row, x, 0, bit_depth, 2),
-            component(row, x, 1, bit_depth, 2));
-         return;
-
-      case PNG_COLOR_TYPE_RGB_ALPHA:
-         printf("RGBA %u %u %u %u\n", component(row, x, 0, bit_depth, 4),
-            component(row, x, 1, bit_depth, 4),
-            component(row, x, 2, bit_depth, 4),
-            component(row, x, 3, bit_depth, 4));
+   char buffer[100];
+    int c1a;
+    int c2a;
+    int c3a;
+   fp = fopen ( "monica_original.txt", "a" );/* imprimir  los pixcel */
+   switch (png_get_color_type(png_ptr, info_ptr)){
+     case PNG_COLOR_TYPE_GRAY:
+       if ( component(row, x, 0, bit_depth, 1) == 0) {
+           fprintf(fp, "%d %d %d\n",0,0,0 );
+       }else{
+           fprintf(fp, "%d %d %d\n",255,255,255 );
+       }
+        //printf("GRAY %u\n", component(row, x, 0, bit_depth, 1));
+        fclose ( fp );
+        return;
+      case PNG_COLOR_TYPE_RGB: /** para RGB **/
+          /*  printf("%u %u %u\n", component(row, x, 0, bit_depth, 3), component(row, x, 1, bit_depth, 3),component(row, x, 2, bit_depth, 3));*/
+            c1a=component(row, x, 0, bit_depth, 3);
+            c2a =component(row, x, 1, bit_depth, 3);
+            c3a=component(row, x, 2, bit_depth, 3);
+            fprintf(fp, "%d %d %d\n",c1a,c2a,c3a );
+          fclose ( fp );
          return;
 
       default:
-         png_error(png_ptr, "pngpixel: invalid color type");
+         png_error(png_ptr, "pngpixel: invalido tipo de color");
    }
 }
 
 int main(int argc, const char **argv){
+FILE *fp;
+fp = fopen ( "monica_original.txt", "a" );/* imprimir  los pixcel */
+fprintf(fp, "P3\n");
+fprintf(fp, "25600\n");
+fprintf(fp, "25600\n");
+fprintf(fp, "255\n");
+fclose ( fp );
+  int bloque =1;
   /* Este programa utiliza el predeterminado, <setjmp.h> basado, manipulación de errores libpng
    * mecanismo, por lo tanto cualquier variable local que existe antes de la llamada a
    * setjmp y se cambia después de que la llamada a setjmp devuelve satisfactoriamente debe
@@ -250,6 +191,9 @@ int main(int argc, const char **argv){
                          * leyendo una fila y luego comprobando para ver si
                          * contiene el píxel.
                          */
+                         int h=0;
+                         int n=0;
+                         int m=0;
                         for (py = ystart; py < height; py += ystep){
                            png_uint_32 px, ppx;
                            /* png_read_row toma dos punteros. Cuando libpng
@@ -270,7 +214,22 @@ int main(int argc, const char **argv){
                            /** modificación por fmedel*/
                           for (px = xstart, ppx = 0; px < width; px += xstep, ++ppx){
                             /* 'ppx' es el índice del píxel en la fila buffer. */
-                              print_pixel(png_ptr, info_ptr, row_tmp, ppx);
+                              if (h>25599) {//800
+                                printf("salio\n" );
+                                return 0;
+                              }
+                              if ((h*25600*bloque<=m)&&(((h*25600*bloque)+(25600))>m)&&(h<(25600))) { //800
+                                print_pixel(png_ptr, info_ptr, row_tmp, ppx);
+                                n++;
+                                //printf("fila-->%d\n",n );
+                                if (n>(25599)) {
+                                  n=0;
+                                  h++;
+                                  printf("columna -> %d\n",h );
+                                }
+                              }else
+                              {/*printf("h->%d n->%d m->%d\n",h,n,m );*/}
+                                m++;
                               /* Ahora termina los bucles temprano - tenemos encontró y manejó los datos requeridos.*/
                            } /* x loop */
                         } /* y loop */
@@ -320,8 +279,7 @@ int main(int argc, const char **argv){
 }   else
     /* Número incorrecto de argumentos */
       fprintf(stderr, "pngpixel: use:png-file\n");
-    fprintf(stderr, "finalizo el programa\n", );
+
    return result;
 }
-
 #endif /* READ && SEQUENTIAL_READ */
