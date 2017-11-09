@@ -6,7 +6,7 @@
 #define MAX_SECCION_FILA 128
 #define MAX_SECCION_COLUMNA 128
 int main(int argc, const char **argv) {
-  char *nombre="Monica.png";
+  char *nombre="laberinto.png";
   char fila[3];
   char columna[3];
   int seccion_fila;
