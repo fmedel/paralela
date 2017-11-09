@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <setjmp.h> /* required for error handling */
+#define RANGO 200
 
 /* Normally use <png.h> here to get the installed libpng, but this is done to
  * ensure the code picks up the local libpng implementation:
@@ -159,10 +160,15 @@ int funcion_main(int argc,long  fila, long  columna, char * nombre, int seccion_
     * be declared with 'volatile' to ensure that their values don't get
     * destroyed by longjmp:
     */
-    FILE *fp;
+    printf("paso\n");
+     FILE *fp;
+     printf("%s\n",nombre_2 );
      fp = fopen ( nombre_2, "a" );/* imprimir  los pixcel */
-     fprintf(fp, "P3\n800\n800\n255\n");
+     printf("paso2\n");
+     fprintf(fp, "P3\n200\n200\n255\n");
+      printf("paso3\n");
      fclose(fp);
+     printf("paso4\n");
    volatile int result = 1/*fail*/;
    if (argc == 4)
    {
@@ -313,14 +319,14 @@ int funcion_main(int argc,long  fila, long  columna, char * nombre, int seccion_
                             */
                            png_read_row(png_ptr, row_tmp, NULL);
 
-                           if (! (py >=(800*(seccion_fila-1)) && py <=(800*(seccion_fila)))) {
+                           if (! (py >=(RANGO*(seccion_fila-1)) && py <(RANGO*(seccion_fila)))) {
                              continue;
                            }
                            /* Now find the pixel if it is in this row; there
                             * are, of course, much better ways of doing this
                             * than using a for loop:
                             */
-                             for (px = columna, ppx = columna;px < (800*seccion_columna); px += xstep, ++ppx){
+                             for (px = columna, ppx = columna;px < (RANGO*seccion_columna); px += xstep, ++ppx){
                                  /*printf("%ld --- %ld \n",py,px );*/
                              //if (x == px)
                              //{

@@ -1,2 +1,2 @@
-gcc  polop.c -o PngaPixcel -lpng
+gcc  main.c -o PngaPixcel -lpng
 ./PngaPixcel
