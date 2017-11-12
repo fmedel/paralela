@@ -27,6 +27,25 @@ using namespace pqxx;
    string port= "5432";
    string conexion= "dbname ="+dbname+" user = "+user+" password = "+password+" hostaddr = "+hostaddr+" port = "+port;
 //#############################################################################################################
+void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor){
+  printf("entro en pasar_a_bd_laberinto\n");
+  string query;
+  connection conn(conexion);
+  if (conn.is_open()) {
+      cout << "bd abierta con exito: " << conn.dbname() << endl;
+  }
+  else{
+      cout << "Error al abrir bd" << endl;
+  }
+  query = "INSERT INTO laberinto (seccion_fila,seccion_columna,fila,columna,valor)  VALUES ("+to_string(seccion_fila)+","+to_string(seccion_columna)+","+to_string(fila)+","+to_string(columna)+","+to_string(valor)+")";
+  std::cout << query << '\n';
+  work W(conn);
+  W.exec( query );
+  W.commit();
+  cout << "ingreso correcto de dato" << endl;
+  conn.disconnect ();
+  printf("salio de pasar_a_bd_laberinto\n");
+}
 
 int buscar_comienzo(char *nombre){
   printf("buscar_comienzo\n");
@@ -69,7 +88,7 @@ void leer(char *nombre, int seccion_fila){
    printf("salir leer\n");
 }
 
-void cargar_datos(int datos[DATOS][DATOS], char *nombre){
+void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int seccion_columna){
   printf("enrtro en cargar datos\n");
   char cadena[MAX_CARRACTERES];
   int fila=0;
@@ -83,11 +102,13 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre){
     if(contador<5){continue;}
     if (strcmp(BLANCO,cadena)==0) {
         datos[fila][columna]=BLANCO_VALOR;
+        pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
         ofs << BLANCO_VALOR;
       }
       else{
          if (strcmp(NEGRO,cadena)==0) {
            datos[fila][columna]=NEGRO_VALOR;
+           pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
            ofs << NEGRO_VALOR;
          }
          else{
@@ -234,6 +255,7 @@ void copiar_carpeta(){
   printf("salio de copiar_carpeta\n");
 }
 
+
 int main(int argc, char const *argv[]) {
   int seccion_fila;
   int datos[DATOS][DATOS];
@@ -248,7 +270,7 @@ int main(int argc, char const *argv[]) {
       seccion_columna=j;
       sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
       //copiar_carpeta();
-      cargar_datos(datos,nombre_2);
+      cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
       leer(nombre_2,seccion_fila);
       //cout<<buscar_comienzo(nombre_2)<<"\n";
       //mostrar_datos(datos);
@@ -258,7 +280,7 @@ int main(int argc, char const *argv[]) {
       //imprimir_generar_inicio_fin(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
       //generar_camino(199,113,199,146,datos);
       //printf("%d\n",cuanto_datos);
-      buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
+      //buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
     }
   }
   return 0;
