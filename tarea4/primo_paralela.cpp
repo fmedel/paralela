@@ -45,7 +45,8 @@ int main(int argc, char **argv) {
     /*lo que hacen los esclavos */
     else{
           /*aqui va lo que se quiere hacer los esclavos*/
-          for (long  i = contadoraux[0]+1; i <contadoraux[1]; i++) {
+          if (myid+1==numprocs){contadoraux[1]=valor;}
+          for (long  i = contadoraux[0]+1; i <=contadoraux[1]; i++) {
             if(funcion_primo(i)){
               contador++;
             }
