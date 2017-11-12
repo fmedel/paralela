@@ -25,9 +25,10 @@ int main(int argc, char **argv) {
     long valor= atoi(argv[1]);
     contadoraux[0]=(valor/numprocs)*myid;
     contadoraux[1]=(valor/numprocs)*(myid+1);
+    contadoraux[2]=0;
     /*identificar el master*/
     if (myid==0) {
-      for (long  i = contadoraux[0]; i <=contadoraux[1]; i++) {
+      for (long  i = (contadoraux[0]+1); i <=contadoraux[1]; i++) {
         if(funcion_primo(i)){
           contador++;
         }
@@ -37,15 +38,17 @@ int main(int argc, char **argv) {
         /*mpi que recive  todo los datos de los mpi send */
         MPI_Recv(&contadoraux[0], N, MPI_LONG, i, 0, MPI_COMM_WORLD, &info);
         /*aqui va lo que se quiere hacer el master*/
-        contador+=contadoraux[2];
+        contador=contador+contadoraux[2];
         //std::cout << contadoraux[1] << '\n';
       }
     }
     /*lo que hacen los esclavos */
     else{
           /*aqui va lo que se quiere hacer los esclavos*/
-          for (long  i = contadoraux[0]; i <=contadoraux[1]; i++) {
-            funcion_primo(i);
+          for (long  i = contadoraux[0]+1; i <contadoraux[1]; i++) {
+            if(funcion_primo(i)){
+              contador++;
+            }
           }
           contadoraux[2]=contador;
            /*mpi enviar datos  hasta el master */

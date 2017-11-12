@@ -34,7 +34,7 @@ bool funcion_primo(long valor){
     }
   }
   if (primo == true) {
-    std::cout << valor <<"  ";
+    std::cout << valor <<"\n";
     return true;
   }
   return false;
