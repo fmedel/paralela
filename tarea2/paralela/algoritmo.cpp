@@ -64,7 +64,7 @@ double calculateHValue(int row, int col, Pair dest)
 // to destination
 void tracePath(cell cellDetails[][COL], Pair dest,char resultado_camino[8000])
 {
-    printf ("\nThe Path is ");
+    //printf ("\nThe Path is ");
     int row = dest.first;
     int col = dest.second;
     char temporal[7];
@@ -87,11 +87,11 @@ void tracePath(cell cellDetails[][COL], Pair dest,char resultado_camino[8000])
         pair<int,int> p = Path.top();
         Path.pop();
         sprintf(temporal, "(%d,%d)-",p.first,p.second);
-        printf("(%d,%d)-",p.first,p.second);
+        //printf("(%d,%d)-",p.first,p.second);
         strcat(gigante,temporal);
         temporal[0]=NULL;
     }
-    printf("holiwi\n");
+    //printf("holiwi\n");
     //printf("%s\n",gigante );
     strcpy(resultado_camino,gigante);
     gigante[0]=NULL;

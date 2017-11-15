@@ -26,7 +26,52 @@ using namespace pqxx;
    string hostaddr= "127.0.0.1";
    string port= "5432";
    string conexion= "dbname ="+dbname+" user = "+user+" password = "+password+" hostaddr = "+hostaddr+" port = "+port;
-//#############################################################################################################
+//###########################################cabesera##################################################################
+void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor);
+int buscar_comienzo(char *nombre);
+int ver_cuanto_abierto(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS]);
+void leer(char *nombre, int seccion_fila);
+void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int seccion_columna);
+void mostrar_datos(int datos[DATOS][DATOS]);
+int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int seccion_fila, int seccion_columna);
+void imprimir_pares(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int cuantos);
+void pasar_a_bd_inicio_fin(int fila_inicio , int fila_fin ,int columna_inicio , int columna_fin ,int seccion_fila, int seccion_columna, char* camino);
+void imprimir_generar_inicio_fin(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int cuantos);
+void generar_camino(int inicio_fila,int inicio_columna,int fin_fila,int fin_columna, int datos[DATOS][DATOS],int seccion_fila,int seccion_columna);
+void buscar_camino_pares(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int cuantos , int datos[DATOS][DATOS],int seccion_fila, int seccion_columna);
+void copiar_carpeta();
+//#########################################main##############################/
+int main(int argc, char const *argv[]) {
+  int seccion_fila;
+  int datos[DATOS][DATOS];
+  int seccion_columna;
+  char nombre_2[10];
+  int vector_blancos_fila[MAX_FILA_DATOS];
+  int vector_blancos_columna[MAX_COLUMNA_DATOS];
+  int contador=0;
+  for (int i = MAX_SECCIONES_FILA; i < (MAX_SECCIONES_FILA+1); i++) {
+    seccion_fila=i;
+    for (int j = MAX_SECCIONES_COLUMNA; j < (MAX_SECCIONES_COLUMNA+1); j++) {
+      seccion_columna=j;
+      sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
+      //copiar_carpeta();
+      cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
+      //leer(nombre_2); //puede servir pa algo
+      //cout<<buscar_comienzo(nombre_2)<<"\n";
+      //mostrar_datos(datos);
+      int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
+      //printf("abierto -> %d\n",ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
+      //imprimir_pares(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
+      //imprimir_generar_inicio_fin(vector_blancos_fila,vector_blancos_columna,cuanto_datos);
+      //generar_camino(199,113,199,146,datos);
+      //printf("%d\n",cuanto_datos);
+      buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
+    }
+  }
+  return 0;
+}
+//#####################################################funciones######################################
+
 void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor){
   printf("entro en pasar_a_bd_laberinto\n");
   string query;
@@ -75,7 +120,7 @@ int ver_cuanto_abierto(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blanco
   printf("salio en ver cuanto abierto\n");
 }
 
-void leer(char *nombre, int seccion_fila){
+void leer(char *nombre){
   printf("entro leer\n");
    char cadena[MAX_CARRACTERES];
    ifstream fe(nombre);
@@ -83,6 +128,7 @@ void leer(char *nombre, int seccion_fila){
    while(!fe.eof()) {
      valor++;
       fe.getline(cadena, MAX_CARRACTERES);
+      printf("%s\n",cadena);
     }
    fe.close();
    printf("salir leer\n");
@@ -102,13 +148,13 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
     if(contador<5){continue;}
     if (strcmp(BLANCO,cadena)==0) {
         datos[fila][columna]=BLANCO_VALOR;
-        pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
+        //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
         ofs << BLANCO_VALOR;
       }
       else{
          if (strcmp(NEGRO,cadena)==0) {
            datos[fila][columna]=NEGRO_VALOR;
-           pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
+           //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
            ofs << NEGRO_VALOR;
          }
          else{
@@ -199,7 +245,7 @@ void pasar_a_bd_inicio_fin(int fila_inicio , int fila_fin ,int columna_inicio , 
       cout << "Error al abrir bd" << endl;
   }
   query = "INSERT INTO camino (seccion_fila,seccion_columna,inicio_fila,fin_fila,inicio_columna,fin_columna,camino)  VALUES ("+ to_string(seccion_fila) + ","+to_string(seccion_columna)+","+to_string(fila_inicio)+","+to_string(fila_fin)+","+to_string(columna_inicio)+","+to_string(columna_fin)+",'"+camino+"')";
-  std::cout << query << '\n';
+  //std::cout << query << '\n';
   work W(conn);
   W.exec( query );
   W.commit();
@@ -222,21 +268,28 @@ void imprimir_generar_inicio_fin(int vector_blancos_fila[MAX_FILA_DATOS],int vec
 }
 
 void generar_camino(int inicio_fila,int inicio_columna,int fin_fila,int fin_columna, int datos[DATOS][DATOS],int seccion_fila,int seccion_columna){
-  //printf("entro en generar_camino\n");
   char resultado_camino[8000];
   int valor_ba;
-  //valor_ba=funcion_main( datos, inicio_fila,inicio_columna,fin_fila,fin_columna);
   valor_ba=funcion_main( datos, inicio_fila,inicio_columna,fin_fila,fin_columna,resultado_camino);
   if(valor_ba==1){
     pasar_a_bd_inicio_fin(inicio_fila,fin_fila,inicio_columna,fin_columna,seccion_fila, seccion_columna, resultado_camino);
-    //printf("%s\n",resultado_camino);
   }
-  //printf("salio en generar_camino\n");
-
 }
 
 void buscar_camino_pares(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int cuantos , int datos[DATOS][DATOS],int seccion_fila, int seccion_columna){
   printf("entro en buscar_camino_pares\n");
+  if (seccion_fila==3 && seccion_columna==1) {
+    for (int x = 0; x < cuantos; x++) {
+        generar_camino(1,1,vector_blancos_fila[x],vector_blancos_columna[x], datos ,seccion_fila, seccion_columna);
+    }
+  }else{
+  }if (seccion_fila==128 && seccion_columna==126) {
+      for (int x = 0; x < cuantos; x++) {
+          generar_camino(199,199,vector_blancos_fila[x],vector_blancos_columna[x], datos ,seccion_fila, seccion_columna);
+          generar_camino(vector_blancos_fila[x],vector_blancos_columna[x],199,199, datos ,seccion_fila, seccion_columna);
+      }
+    }
+  }
   for (int i = 0; i < cuantos; i++) {
     for (int z = 0; z < cuantos; z++) {
       if(i==z){continue;}
@@ -253,35 +306,4 @@ void copiar_carpeta(){
   system("mkdir resultado");
   system("cp -r datos/* resultado/");
   printf("salio de copiar_carpeta\n");
-}
-
-
-int main(int argc, char const *argv[]) {
-  int seccion_fila;
-  int datos[DATOS][DATOS];
-  int seccion_columna;
-  char nombre_2[10];
-  int vector_blancos_fila[MAX_FILA_DATOS];
-  int vector_blancos_columna[MAX_COLUMNA_DATOS];
-  int contador=0;
-  for (int i = MAX_SECCIONES_FILA; i < (MAX_SECCIONES_FILA+1); i++) {
-    seccion_fila=i;
-    for (int j = MAX_SECCIONES_COLUMNA; j < (MAX_SECCIONES_COLUMNA+1); j++) {
-      seccion_columna=j;
-      sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
-      //copiar_carpeta();
-      cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
-      leer(nombre_2,seccion_fila);
-      //cout<<buscar_comienzo(nombre_2)<<"\n";
-      //mostrar_datos(datos);
-      int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
-      //printf("abierto -> %d\n",ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
-      //imprimir_pares(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
-      //imprimir_generar_inicio_fin(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
-      //generar_camino(199,113,199,146,datos);
-      //printf("%d\n",cuanto_datos);
-      //buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
-    }
-  }
-  return 0;
 }
