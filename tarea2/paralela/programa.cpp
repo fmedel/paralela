@@ -3,13 +3,16 @@
 #include <string.h>
 #include <pqxx/pqxx>
 #include "algoritmo.cpp"
+#include <sstream>
+#include <omp.h>
+#include <time.h>
 using namespace std;
 using namespace pqxx;
 //##########################################Definir variable#################################################
 #define MAX_FILA_DATOS 800
 #define MAX_COLUMNA_DATOS 800
-#define MAX_SECCIONES_FILA 3 //128
-#define MAX_SECCIONES_COLUMNA 1 //128
+#define MAX_SECCIONES_FILA 128 //128
+#define MAX_SECCIONES_COLUMNA 126 //126
 #define MAX_POSIBLE_COMBINATORIA 0
 #define MAX_CARRACTERES 128
 #define BLANCO "255 255 255"
@@ -27,6 +30,7 @@ using namespace pqxx;
    string port= "5432";
    string conexion= "dbname ="+dbname+" user = "+user+" password = "+password+" hostaddr = "+hostaddr+" port = "+port;
 //###########################################cabesera##################################################################
+
 void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor);
 int buscar_comienzo(char *nombre);
 int ver_cuanto_abierto(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS]);
@@ -40,40 +44,57 @@ void imprimir_generar_inicio_fin(int vector_blancos_fila[MAX_FILA_DATOS],int vec
 void generar_camino(int inicio_fila,int inicio_columna,int fin_fila,int fin_columna, int datos[DATOS][DATOS],int seccion_fila,int seccion_columna);
 void buscar_camino_pares(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int cuantos , int datos[DATOS][DATOS],int seccion_fila, int seccion_columna);
 void copiar_carpeta();
+void pintar_camino(int seccion_fila,int seccion_columna, string camino);
+string buscar_camino_bd(int seccion_fila,int seccion_columna,int inicio_fila,int fin_fila,int inicio_columna,int fin_columna);
+void imprimir_invertido(char* nombre_2,int datos[DATOS][DATOS]);
+
 //#########################################main##############################/
+
 int main(int argc, char const *argv[]) {
+
+    clock_t start, end;
+    start = clock();
   int seccion_fila;
   int datos[DATOS][DATOS];
   int seccion_columna;
   char nombre_2[10];
   int vector_blancos_fila[MAX_FILA_DATOS];
   int vector_blancos_columna[MAX_COLUMNA_DATOS];
-  int contador=0;
-  for (int i = MAX_SECCIONES_FILA; i < (MAX_SECCIONES_FILA+1); i++) {
-    seccion_fila=i;
-    for (int j = MAX_SECCIONES_COLUMNA; j < (MAX_SECCIONES_COLUMNA+1); j++) {
-      seccion_columna=j;
-      sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
-      //copiar_carpeta();
-      cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
-      //leer(nombre_2); //puede servir pa algo
-      //cout<<buscar_comienzo(nombre_2)<<"\n";
-      //mostrar_datos(datos);
-      int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
-      //printf("abierto -> %d\n",ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
-      //imprimir_pares(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
-      //imprimir_generar_inicio_fin(vector_blancos_fila,vector_blancos_columna,cuanto_datos);
-      //generar_camino(199,113,199,146,datos);
-      //printf("%d\n",cuanto_datos);
-      buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
+  //int contador=0;
+    #pragma omp parallel for
+    for (int i = 3; i < (MAX_SECCIONES_FILA+1); i++) {
+      seccion_fila=i;
+      for (int j = 1; j < (MAX_SECCIONES_COLUMNA+1); j++) {
+        seccion_columna=j;
+        sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
+        cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
+        //leer(nombre_2); //puede servir pa algo
+        //cout<<buscar_comienzo(nombre_2)<<"\n";
+        //mostrar_datos(datos);
+        //int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
+        //printf("abierto -> %d\n",ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
+        //imprimir_pares(vector_blancos_fila,vector_blancos_columna,ver_cuanto_abierto(vector_blancos_fila,vector_blancos_columna));
+        //imprimir_generar_inicio_fin(vector_blancos_fila,vector_blancos_columna,cuanto_datos);
+        //generar_camino(199,113,199,146,datos);
+        //printf("%d\n",cuanto_datos);
+        //buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
+        //pasar_a_bd_inicio_fin(1,1,1,1,1,2,"dd");
+        //string camino_s = buscar_camino_bd(MAX_SECCIONES_FILA,MAX_SECCIONES_COLUMNA,181,166,0,0);
+        //pintar_camino(seccion_fila,seccion_columna,camino_s);
+      }
     }
-  }
+    end = clock();
+  cout<< (end - start)<<"\n";
+  printf("termnio #_#\n");
+	//copiar_carpeta();
   return 0;
 }
 //#####################################################funciones######################################
 
-void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor){
-  printf("entro en pasar_a_bd_laberinto\n");
+//select * from camino where seccion_fila = 3 and seccion_columna = 1 and inicio_fila= 134 and fin_fila = 131 and inicio_columna =199 and fin_columna = 199
+
+string buscar_camino_bd(int seccion_fila,int seccion_columna,int inicio_fila,int fin_fila,int inicio_columna,int fin_columna) {
+  printf("entro en buscar_camino_bd\n");
   string query;
   connection conn(conexion);
   if (conn.is_open()) {
@@ -82,14 +103,96 @@ void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int co
   else{
       cout << "Error al abrir bd" << endl;
   }
-  query = "INSERT INTO laberinto (seccion_fila,seccion_columna,fila,columna,valor)  VALUES ("+to_string(seccion_fila)+","+to_string(seccion_columna)+","+to_string(fila)+","+to_string(columna)+","+to_string(valor)+")";
+  query = "select camino from camino where seccion_fila = "+to_string(seccion_fila)+ " and seccion_columna = "+ to_string(seccion_columna)+ " and inicio_fila = "+to_string(inicio_fila)+ " and fin_fila = "+ to_string(fin_fila)+ " and inicio_columna = "+to_string(inicio_columna)+ " and fin_columna = "+to_string(fin_columna)+" ;";
   std::cout << query << '\n';
   work W(conn);
-  W.exec( query );
+  //W.exec( query );
+  pqxx::result r = W.exec(query);
   W.commit();
   cout << "ingreso correcto de dato" << endl;
   conn.disconnect ();
-  printf("salio de pasar_a_bd_laberinto\n");
+  //std::cout <<"ee"<<cc << std::endl;
+  printf("salio de buscar_camino_bd\n");
+  if (r[0]["camino"].c_str()==NULL) {
+    return "Error";
+  }else{
+    return r[0]["camino"].c_str();
+  }
+
+}
+
+void imprimir_invertido(char* nombre_2,int datos[DATOS][DATOS]){
+  FILE *fp;
+  fp = fopen ( nombre_2, "a" );/* imprimir  los pixcel */
+  fprintf(fp, "P3\n200\n200\n255\n");
+  for (int i = 0; i < DATOS; i++) {
+    for (int z = 0; z < DATOS; z++) {
+      if (  datos[i][z] == 2) {
+          fprintf(fp, "255 0 0\n");
+      } else if ( datos[i][z] == 1) {
+        fprintf(fp, "255 255 255\n");
+      } else {
+        fprintf(fp, "0 0 0\n");
+      }
+    }
+  }
+  fclose(fp);
+ }
+
+void pintar_camino(int seccion_fila,int seccion_columna, string camino){
+
+  printf("entro en pintar_camino\n");
+  if (strcmp(camino.c_str(),"Error")!=0) {
+    int datos[DATOS][DATOS];
+    char nombre_2[10];
+    sprintf(nombre_2, "resultado/%d-%d", seccion_fila, seccion_columna);
+    cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
+    remove(nombre_2);
+    string sentencia= camino;
+    std::stringstream sstm;
+    string temporal;
+    int fila;
+    int columna;
+    int largo;
+    char separador = '-'; //aqui vas a introducir el separador -en mi caso es un espacio-
+    size_t tam= camino.length();
+    camino.erase(tam-1); //con la funcion erase(), borramos los caracteres
+    //desde la posicion que le damos como argumento hasta el final
+    //ahora la palabra tendra 1 caracter menos
+    //std::cout << camino << '\n';
+    for(size_t p=0, q=0; p!=sentencia.npos; p=q){
+      std::stringstream sstm;
+      sstm << sentencia.substr(p+(p!=0),(q=sentencia.find(separador, p+1))-p-(p!=0))<<"\n";
+        fila=atoi(sstm.str().substr(1,sstm.str().find(",")-1).c_str());
+        largo= sstm.str().find(")") - sstm.str().find(",");
+        columna=atoi(sstm.str().substr((sstm.str().find(",")+1),largo-1).c_str());
+          datos[fila][columna]=2;
+    }
+    //mostrar_datos(datos);
+    imprimir_invertido(nombre_2,datos);
+    printf("salio en pintar_camino\n");
+  }
+  else{printf("Error pintar_camino \n");}
+}
+
+void pasar_a_bd_laberinto(int seccion_fila, int seccion_columna,int fila, int columna,bool valor){
+  //printf("entro en pasar_a_bd_laberinto\n");
+  string query;
+  connection conn(conexion);
+  if (conn.is_open()) {
+    //cout << "bd abierta con exito: " << conn.dbname() << endl;
+  }
+  else{
+      cout << "Error al abrir bd" << endl;
+  }
+  query = "INSERT INTO laberinto (seccion_fila,seccion_columna,fila,columna,valor)  VALUES ("+to_string(seccion_fila)+","+to_string(seccion_columna)+","+to_string(fila)+","+to_string(columna)+","+to_string(valor)+")";
+  //std::cout << query << '\n';
+  work W(conn);
+  W.exec( query );
+  W.commit();
+  //cout << "ingreso correcto de dato" << endl;
+  conn.disconnect ();
+  //printf("salio de pasar_a_bd_laberinto\n");
 }
 
 int buscar_comienzo(char *nombre){
@@ -135,7 +238,7 @@ void leer(char *nombre){
 }
 
 void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int seccion_columna){
-  printf("enrtro en cargar datos\n");
+  //printf("enrtro en cargar datos\n");
   char cadena[MAX_CARRACTERES];
   int fila=0;
   int columna=0;
@@ -148,13 +251,13 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
     if(contador<5){continue;}
     if (strcmp(BLANCO,cadena)==0) {
         datos[fila][columna]=BLANCO_VALOR;
-        //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
+        pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
         ofs << BLANCO_VALOR;
       }
       else{
          if (strcmp(NEGRO,cadena)==0) {
            datos[fila][columna]=NEGRO_VALOR;
-           //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
+           pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
            ofs << NEGRO_VALOR;
          }
          else{
@@ -176,7 +279,7 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
   }
   ofs.close();
   fe.close();
-  printf("Salir cargar_datos\n");
+  //printf("Salir cargar_datos\n");
 }
 
 void mostrar_datos(int datos[DATOS][DATOS]){
@@ -198,26 +301,231 @@ void mostrar_datos(int datos[DATOS][DATOS]){
 int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int seccion_fila, int seccion_columna){
   printf("entro en buscar abierto\n");
   int contador=0;
-  if (seccion_fila<3) {
+  if (seccion_fila<3 or seccion_columna>126) {
     printf("Error en buscar_abierto\n");
   } else {
-    if (seccion_columna==MAX_SECCIONES_COLUMNA) { //temporal revisar
-      for (int c = 0; c < DATOS; c++) {
-        if (datos[DATOS-1][c]==1) {
-                vector_blancos_fila[contador]=DATOS-1;
-                vector_blancos_columna[contador]=c;
-                //printf("columna-> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                contador++;
-        }else{continue;}
-      }
-      for (int f = 0; f <DATOS; f++) {
-        if (datos[f][DATOS-1]==1) {
+    switch (seccion_columna) {
+      case 1 :
+        if (seccion_fila==3) {
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+                    vector_blancos_fila[contador]=DATOS-1;
+                    vector_blancos_columna[contador]=c;
+                    //printf("variable(columna 1) -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][DATOS-1]==1) {
+                    vector_blancos_fila[contador]=f;
+                    vector_blancos_columna[contador]=DATOS-1;
+                    //printf("ariable(fila) 1 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+        } else if(seccion_fila>3 and seccion_fila<128){
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+                    vector_blancos_fila[contador]=DATOS-1;
+                    vector_blancos_columna[contador]=c;
+                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[0][c]==1) {
+                    vector_blancos_fila[contador]=0;
+                    vector_blancos_columna[contador]=c;
+                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][DATOS-1]==1) {
+                    vector_blancos_fila[contador]=f;
+                    vector_blancos_columna[contador]=DATOS-1;
+                    //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+        }else if(seccion_fila==128){
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[0][c]==1) {
+                    vector_blancos_fila[contador]=0;
+                    vector_blancos_columna[contador]=c;
+                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][DATOS-1]==1) {
+                    vector_blancos_fila[contador]=f;
+                    vector_blancos_columna[contador]=DATOS-1;
+                    //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+        }
+        else{printf("Error\n");}
+        break;
+      case 126:
+        if (seccion_fila==3) {
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+              vector_blancos_fila[contador]=DATOS-1;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][0]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=0;
+              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+        } else if(seccion_fila>3 and seccion_fila<128){
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+              vector_blancos_fila[contador]=DATOS-1;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }
+            else{continue;}
+          }
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[0][c]==1) {
+              vector_blancos_fila[contador]=0;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][0]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=0;
+              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+        }else if (seccion_fila==128){
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[0][c]==1) {
+              vector_blancos_fila[contador]=0;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][0]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=0;
+              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+        }
+        else{printf("Error en buscar camino\n");}
+          break;
+      case 127:
+        printf("Error en buscar camino\n");
+        break;
+      case 128:
+        printf("Error en buscar camino\n");
+        break;
+      default:
+        if (seccion_fila==3) {
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+              vector_blancos_fila[contador]=DATOS-1;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][0]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=0;
+            //  printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][DATOS-1]==1) {
+                    vector_blancos_fila[contador]=f;
+                    vector_blancos_columna[contador]=DATOS-1;
+                    //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    contador++;
+            }else{continue;}
+          }
+        } else if(seccion_fila>3 and seccion_fila<128){
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {
+              vector_blancos_fila[contador]=DATOS-1;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int c = 0; c < DATOS; c++) {
+            if (datos[0][c]==1) {
+              vector_blancos_fila[contador]=0;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][0]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=0;
+              //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+            }else{continue;}
+          }
+          for (int f = 0; f <DATOS; f++) {
+            if (datos[f][DATOS-1]==1) {
                 vector_blancos_fila[contador]=f;
                 vector_blancos_columna[contador]=DATOS-1;
-                //printf("fila-> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+                    //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
                 contador++;
-        }else{continue;}
+            }else{continue;}
+          }
+        }
+      else if (seccion_fila==128){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) {
+            vector_blancos_fila[contador]=0;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) {
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][DATOS-1]==1) {
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=DATOS-1;
+                  //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
       }
+      else{printf("Error en buscar camino\n");}
+        break;
     }
   }
   return contador;
@@ -244,12 +552,12 @@ void pasar_a_bd_inicio_fin(int fila_inicio , int fila_fin ,int columna_inicio , 
   else{
       cout << "Error al abrir bd" << endl;
   }
-  query = "INSERT INTO camino (seccion_fila,seccion_columna,inicio_fila,fin_fila,inicio_columna,fin_columna,camino)  VALUES ("+ to_string(seccion_fila) + ","+to_string(seccion_columna)+","+to_string(fila_inicio)+","+to_string(fila_fin)+","+to_string(columna_inicio)+","+to_string(columna_fin)+",'"+camino+"')";
+  query = "INSERT INTO camino (seccion_fila,seccion_columna,inicio_fila,fin_fila,inicio_columna,fin_columna,camino)  VALUES ("+ to_string(seccion_fila) + ","+to_string(seccion_columna)+","+to_string(fila_inicio)+","+to_string(fila_fin)+","+to_string(columna_inicio)+","+to_string(columna_fin)+",'"+camino+"');";
   //std::cout << query << '\n';
   work W(conn);
-  W.exec( query );
+  W.exec(query);
   W.commit();
-  cout << "ingreso correcto de dato" << endl;
+  cout << "ingreso correcto de datoss" << endl;
   conn.disconnect ();
   printf("salio de pasar_a_bd_inicio_fin\n");
 }
@@ -280,10 +588,10 @@ void buscar_camino_pares(int vector_blancos_fila[MAX_FILA_DATOS],int vector_blan
   printf("entro en buscar_camino_pares\n");
   if (seccion_fila==3 && seccion_columna==1) {
     for (int x = 0; x < cuantos; x++) {
-        generar_camino(1,1,vector_blancos_fila[x],vector_blancos_columna[x], datos ,seccion_fila, seccion_columna);
+        generar_camino(0,0,vector_blancos_fila[x],vector_blancos_columna[x], datos ,seccion_fila, seccion_columna);
     }
   }else{
-  }if (seccion_fila==128 && seccion_columna==126) {
+  if (seccion_fila==128 && seccion_columna==126) {
       for (int x = 0; x < cuantos; x++) {
           generar_camino(199,199,vector_blancos_fila[x],vector_blancos_columna[x], datos ,seccion_fila, seccion_columna);
           generar_camino(vector_blancos_fila[x],vector_blancos_columna[x],199,199, datos ,seccion_fila, seccion_columna);
