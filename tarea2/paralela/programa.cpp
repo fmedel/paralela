@@ -11,7 +11,7 @@ using namespace pqxx;
 //##########################################Definir variable#################################################
 #define MAX_FILA_DATOS 800
 #define MAX_COLUMNA_DATOS 800
-#define MAX_SECCIONES_FILA 128 //128
+#define MAX_SECCIONES_FILA 5 //128
 #define MAX_SECCIONES_COLUMNA 126 //126
 #define MAX_POSIBLE_COMBINATORIA 0
 #define MAX_CARRACTERES 128
@@ -48,6 +48,9 @@ void pintar_camino(int seccion_fila,int seccion_columna, string camino);
 string buscar_camino_bd(int seccion_fila,int seccion_columna,int inicio_fila,int fin_fila,int inicio_columna,int fin_columna);
 void imprimir_invertido(char* nombre_2,int datos[DATOS][DATOS]);
 
+// para hacer solo diagonal
+bool es_diagonal(int seccion_fila,int seccion_columna);
+void buscar_camino_pares_diagonal( int datos[DATOS][DATOS],int seccion_fila, int seccion_columna);
 //#########################################main##############################/
 
 int main(int argc, char const *argv[]) {
@@ -61,13 +64,12 @@ int main(int argc, char const *argv[]) {
   int vector_blancos_fila[MAX_FILA_DATOS];
   int vector_blancos_columna[MAX_COLUMNA_DATOS];
   //int contador=0;
-    #pragma omp parallel for
-    for (int i = 3; i < (MAX_SECCIONES_FILA+1); i++) {
+    /*for (int i = 3; i < (MAX_SECCIONES_FILA+1); i++) {
       seccion_fila=i;
       for (int j = 1; j < (MAX_SECCIONES_COLUMNA+1); j++) {
         seccion_columna=j;
         sprintf(nombre_2, "datos/%d-%d", seccion_fila, seccion_columna);
-        cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
+        //cargar_datos(datos,nombre_2,seccion_fila,seccion_columna);
         //leer(nombre_2); //puede servir pa algo
         //cout<<buscar_comienzo(nombre_2)<<"\n";
         //mostrar_datos(datos);
@@ -81,10 +83,36 @@ int main(int argc, char const *argv[]) {
         //pasar_a_bd_inicio_fin(1,1,1,1,1,2,"dd");
         //string camino_s = buscar_camino_bd(MAX_SECCIONES_FILA,MAX_SECCIONES_COLUMNA,181,166,0,0);
         //pintar_camino(seccion_fila,seccion_columna,camino_s);
+
+        //para diagonal
+        if(es_diagonal(i,j)){
+          cargar_datos(datos,nombre_2,i,j);
+          //mostrar_datos(datos);
+          buscar_camino_pares_diagonal(datos,i,j);
+          printf("Es diagonal %d,%d\n",i,j);
+        }
+
       }
-    }
-    end = clock();
-  cout<< (end - start)<<"\n";
+    }*/
+  seccion_fila=3;
+  int x,y;
+  #pragma omp parallel for private(y,nombre_2,datos)
+  for(x=3; x < 129; x++)
+  {
+          for(y=1; y < 127; y++)
+          {
+            if(es_diagonal(x,y)){
+              sprintf(nombre_2, "datos/%d-%d", x, y);
+              cargar_datos(datos,nombre_2,x,y);
+              //mostrar_datos(datos);
+              buscar_camino_pares_diagonal(datos,x,y);
+              printf("Es diagonal %d,%d\n",x,y);
+            }
+          }
+  }
+
+  end = clock();
+  //cout<< (end - start)<<"\n";
   printf("termnio #_#\n");
 	//copiar_carpeta();
   return 0;
@@ -93,6 +121,74 @@ int main(int argc, char const *argv[]) {
 
 //select * from camino where seccion_fila = 3 and seccion_columna = 1 and inicio_fila= 134 and fin_fila = 131 and inicio_columna =199 and fin_columna = 199
 
+bool es_diagonal(int seccion_fila,int seccion_columna){
+  if (seccion_columna == 1) {
+    if (seccion_fila == 128) {
+      return true;
+    }else{
+      return true;
+    }
+  }
+  else{
+      if (seccion_fila == 128) {
+        if (seccion_columna == 126) {
+          return true;
+        }else{
+          return true;
+        }
+      }
+      else {
+        return false;
+      }
+    }
+}
+void buscar_camino_pares_diagonal( int datos[DATOS][DATOS],int seccion_fila, int seccion_columna){
+  printf("entro en buscar_camino_pares\n");
+  if (seccion_columna == 1) {
+    if (seccion_fila == 128) {
+      for (int i = 0; i < 100; i++) {
+        for (int z = 0; z < 100; z++) {
+          generar_camino(0,i,z,199, datos ,seccion_fila, seccion_columna);
+        }
+      }
+    }else{
+      if (seccion_fila==3) {
+        for (int z = 0; z < 100; z++) {
+          //generar_camino(0,i,199,z, datos ,seccion_fila, seccion_columna);
+          generar_camino(0,1,z,199, datos ,seccion_fila, seccion_columna);
+        }
+      }
+      else{
+        for (int i = 0; i < 100; i++) {
+          for (int z = 0; z < 100; z++) {
+            generar_camino(0,i,199,z, datos ,seccion_fila, seccion_columna);
+          }
+        }
+      }
+    }
+  }
+  else{
+      if (seccion_fila == 128) {
+        if (seccion_columna==126) {
+          for (int i = 0; i < 100; i++) {
+            for (int z = 0; z < 100; z++) {
+              generar_camino(i,0,199,199, datos ,seccion_fila, seccion_columna);
+            }
+          }
+        } else {
+          if (seccion_columna!=1) {
+            for (int i = 0; i < 100; i++) {
+              for (int z = 0; z < 100; z++) {
+                generar_camino(i,0,z,199, datos ,seccion_fila, seccion_columna);
+              }
+            }
+          }
+        }
+      }
+    }
+  printf("salio en buscar_camino_pares\n");
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 string buscar_camino_bd(int seccion_fila,int seccion_columna,int inicio_fila,int fin_fila,int inicio_columna,int fin_columna) {
   printf("entro en buscar_camino_bd\n");
   string query;
@@ -244,21 +340,18 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
   int columna=0;
   long contador=0;
   ifstream fe(nombre);
-  std::ofstream ofs (ARCHIVO_TEMPORAL, std::ofstream::out);
   while(!fe.eof()) {
     contador++;
     fe.getline(cadena, MAX_CARRACTERES);
     if(contador<5){continue;}
     if (strcmp(BLANCO,cadena)==0) {
         datos[fila][columna]=BLANCO_VALOR;
-        pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
-        ofs << BLANCO_VALOR;
+        //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
       }
       else{
          if (strcmp(NEGRO,cadena)==0) {
            datos[fila][columna]=NEGRO_VALOR;
-           pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
-           ofs << NEGRO_VALOR;
+          // pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
          }
          else{
            if (contador==40005) {
@@ -271,13 +364,11 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
       }
     columna++;
      if (columna==DATOS) {
-       ofs <<'\n';
        columna=0;
        fila++;
        if (fila==DATOS+1) {break;}
      }
   }
-  ofs.close();
   fe.close();
   //printf("Salir cargar_datos\n");
 }
