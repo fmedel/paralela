@@ -8,14 +8,7 @@ services:
     working_dir: /var/www
     volumes:
       - ./:/var/www
-    environment:
-      - "DB_PORT=32768"
-      - "DB_HOST=prueba"
-      - "DB_HOST=127.0.0.1"
-      - "DB_DATABASE=docker"
-      - "DB_USERNAME=docker"
-      - "DB_PASSWORD=docker"
-  # The Web Server
+ 
   web:
     build:
       context: ./
