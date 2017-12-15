@@ -1,0 +1,64 @@
+--------------------------------------------------------------------------
+[[26446,1],6]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: cn2tVX         CPU: 6     Mensaje: kU]SBaBzj 
+Clave: 0nfLYP         CPU: 0     Mensaje: ZoqvlhOMO 
+Clave: cnFp5M         CPU: 6     Mensaje: [qbw[Lm`PH 
+Clave: onY7gY         CPU: 12     Mensaje: ]X^PFeRRPOe 
+Clave: Qo9nnR         CPU: 26     Mensaje: MNJu_KiHQ 
+Clave: ioqv7b         CPU: 9     Mensaje: ]rWsIu`nt 
+Clave: Cow55p         CPU: 19     Mensaje: HEHLjrJPip 
+Clave: CpcPtd         CPU: 19     Mensaje: qXfRLUs\[ 
+Clave: mpUXj7         CPU: 11     Mensaje: \I_DMExeI 
+Clave: gqwKEo         CPU: 8     Mensaje: TEaSO`]BA 
+Clave: gqNJOL         CPU: 8     Mensaje: ^EAq\puBsy 
+Clave: LnflXU         CPU: 23     Mensaje: ydxeUndTA 
+Clave: VnPbQZ         CPU: 28     Mensaje: \gvSyMjcy 
+Clave: XnV9G4         CPU: 29     Mensaje: _EckpBkRB 
+Clave: jo1keq         CPU: 9     Mensaje: hjVeudcGO 
+Clave: foj7wO         CPU: 7     Mensaje: FrjSYdOiB 
+Clave: 5orwRL         CPU: 2     Mensaje: RaCNSdtzFG 
+Clave: zp1e0y         CPU: 17     Mensaje: VNRUGYgvZ 
+Clave: xpf0kT         CPU: 16     Mensaje: bgfTTUyPD 
+Clave: RpbrSD         CPU: 26     Mensaje: nTyhBDFUN 
+Clave: jqgSzH         CPU: 9     Mensaje: KcElhPpI] 
+Clave: NqkFqY         CPU: 24     Mensaje: N[iU`BZfa 
+Clave: zqFEXU         CPU: 17     Mensaje: cmmUo_WYX 
+Clave: pqzVfc         CPU: 12     Mensaje: C^tEVZfAd 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine

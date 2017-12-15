@@ -1,0 +1,304 @@
+--------------------------------------------------------------------------
+[[17771,1],17]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: Y2hp14         CPU: 20     Mensaje: pWPkB_AKE 
+Clave: ~2mcNN         CPU: 22     Mensaje: p]hji[spM 
+Clave: u2BqGO         CPU: 10     Mensaje: eWGWo^gztx 
+Clave: 2Jifc         CPU: 24     Mensaje: EFUUFaGVFPTZ 
+Clave: M34ss8         CPU: 16     Mensaje: fKl^PMztW 
+Clave: M39Rj4         CPU: 16     Mensaje: jcZzzbwIt 
+Clave: 3p4jj         CPU: 24     Mensaje: pzycZecFq 
+Clave: P3wYMk         CPU: 17     Mensaje: xxuTbdWNd 
+Clave: x3uPOx         CPU: 11     Mensaje: GU`JRLxys 
+Clave: 93zQyB         CPU: 3     Mensaje: pgVkPHcQx 
+Clave: o3BADJ         CPU: 8     Mensaje: YvL`^sKgu 
+Clave: Y3IAWc         CPU: 20     Mensaje: yEZmSutjI^ 
+Clave: 3RXAi         CPU: 24     Mensaje: Y^U[gAaTlPB 
+Clave: P4N8TT         CPU: 17     Mensaje: KsvpD]Yu_ 
+Clave: P4ZmXJ         CPU: 17     Mensaje: O]_[M[HFr 
+Clave: V5sN03         CPU: 19     Mensaje: NXvDgTWqo 
+Clave: M5XX4J         CPU: 16     Mensaje: VYfJlZhbX 
+Clave: ~5ZNbQ         CPU: 22     Mensaje: rPCuQUzZZ 
+Clave: Y6eaad         CPU: 20     Mensaje: RocX^YvYO 
+Clave: J6MJoh         CPU: 15     Mensaje: UMonU]_qd 
+Clave: P72Fj8         CPU: 17     Mensaje: jvVNgrhyjT 
+Clave: G6ZCDZ         CPU: 14     Mensaje: afWjkkgCY 
+Clave: c7etO3         CPU: 4     Mensaje: y\nXhISlr 
+Clave: c7z1XB         CPU: 4     Mensaje: QTabZKRwLH 
+Clave: 67ByoH         CPU: 2     Mensaje: jPoNG`Kmu 
+Clave: i7N7Mt         CPU: 6     Mensaje: mhQfgtKUU 
+Clave: u81WJo         CPU: 10     Mensaje: dJ`ulQVd_i 
+Clave: S8vUc1         CPU: 18     Mensaje: w]iUUdAEX 
+Clave: c8YVcd         CPU: 4     Mensaje: JzRmS\B^P 
+Clave: J900Mo         CPU: 15     Mensaje: f`Vhnrleh 
+Clave: ~91NOq         CPU: 22     Mensaje: edKwAfc^` 
+Clave: 39aB0X         CPU: 1     Mensaje: URoDbNlC_ 
+Clave: 39ECTe         CPU: 1     Mensaje: siTQkRD^f 
+Clave: D9S6W6         CPU: 13     Mensaje: A`PNYw`qr 
+Clave: Gahgy3         CPU: 14     Mensaje: [KlIEiUyo 
+Clave: faUUxD         CPU: 5     Mensaje: Iqs_Cm`iq 
+Clave: xbVNJ3         CPU: 11     Mensaje: NTUQ`NGh_^ 
+Clave: cjdXJ         CPU: 23     Mensaje: tSc^hKztU 
+Clave: cJppE         CPU: 24     Mensaje: ZvVjKewkOn 
+Clave: JdImEP         CPU: 15     Mensaje: mMhThGWc[ 
+Clave: xdAnvH         CPU: 11     Mensaje: rIdvAMXEQ 
+Clave: 6dTcMm         CPU: 2     Mensaje: ACx\wDuvr 
+Clave: odTmI2         CPU: 8     Mensaje: DKHxxXvgLX 
+Clave: VenOe2         CPU: 19     Mensaje: WtRKNbo^M 
+Clave: ieIA1h         CPU: 6     Mensaje: giSRXX]G` 
+Clave: Df21CV         CPU: 13     Mensaje: WIq[wL[ky 
+Clave: Yf5Z0b         CPU: 20     Mensaje: kFoXSOtdO 
+Clave: fxWzV         CPU: 23     Mensaje: kkmciZ[EjC 
+Clave: 6fOWWZ         CPU: 2     Mensaje: QkPJBGwkK 
+Clave: 9gKSFf         CPU: 3     Mensaje: huV]dPIbco 
+Clave: Jh1qHJ         CPU: 15     Mensaje: WsbBTI]Fy 
+Clave: rhRth8         CPU: 9     Mensaje: EnqSXdoB\ 
+Clave: MifcCc         CPU: 16     Mensaje: QhALXhTH_ 
+Clave: 3icCc0         CPU: 1     Mensaje: hZWzDgpGMw 
+Clave: JipO1y         CPU: 15     Mensaje: [LUPEswtT 
+Clave: fiuDnq         CPU: 5     Mensaje: bGV`NcWAi 
+Clave: iixuNZ         CPU: 6     Mensaje: NsPOKZnda 
+Clave: DiVO8f         CPU: 13     Mensaje: V`_kJjM\G 
+Clave: Vj1IE8         CPU: 19     Mensaje: Tnf\grQFb 
+Clave: fj5MUw         CPU: 5     Mensaje: UNkxwnNep 
+Clave: ujVK5I         CPU: 10     Mensaje: nSKlZ_vTL 
+Clave: fkam4t         CPU: 5     Mensaje: qXDu[gF`A 
+Clave: 0kGYKM         CPU: 0     Mensaje: hmvMBqJJEY 
+Clave: PkNFzD         CPU: 17     Mensaje: IK`D_jdXf 
+Clave: lypsV         CPU: 23     Mensaje: UJEcTsE^lY 
+Clave: 0lNOZr         CPU: 0     Mensaje: BAF\TxLi_ 
+Clave: 6mxTOm         CPU: 2     Mensaje: eLxOG`Emi 
+Clave: cn2tVX         CPU: 4     Mensaje: kU]SBaBzj 
+Clave: 0nfLYP         CPU: 0     Mensaje: ZoqvlhOMO 
+Clave: cnFp5M         CPU: 4     Mensaje: [qbw[Lm`PH 
+Clave: VnPbQZ         CPU: 19     Mensaje: \gvSyMjcy 
+Clave: onY7gY         CPU: 8     Mensaje: ]X^PFeRRPOe 
+Clave: foj7wO         CPU: 5     Mensaje: FrjSYdOiB 
+Clave: ioqv7b         CPU: 6     Mensaje: ]rWsIu`nt 
+Clave: xpf0kT         CPU: 11     Mensaje: bgfTTUyPD 
+Clave: YpFq1C         CPU: 20     Mensaje: DGLqEU]ND 
+--------------------------------------------------------------------------
+mpirun noticed that process rank 3 with PID 8472 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+[[63824,1],23]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: gqwKEo         CPU: 8     Mensaje: TEaSO`]BA 
+Clave: gqNJOL         CPU: 8     Mensaje: ^EAq\puBsy 
+Clave: Ur5ajI         CPU: 28     Mensaje: jDxC^Gbwy 
+Clave: wraWRy         CPU: 16     Mensaje: VDqCb^gBw 
+Clave: QrgIMI         CPU: 26     Mensaje: ug_Npgt`_sPcG 
+Clave: mryeOd         CPU: 11     Mensaje: fjnpzFauGt 
+Clave: crJkYC         CPU: 6     Mensaje: G_bgH\\Ch 
+Clave: yrWpSj         CPU: 17     Mensaje: JB[zTaafL 
+Clave: IscGV3         CPU: 22     Mensaje: tPq_COZUaP 
+Clave: AsB6Cq         CPU: 18     Mensaje: XWkvLTdhc 
+Clave: 8sKD1l         CPU: 4     Mensaje: xssKJu\`Y 
+Clave: Ct0BEG         CPU: 19     Mensaje: VCFEtUg_d 
+Clave: iteX3x         CPU: 9     Mensaje: vzpvH`vYC 
+Clave: Wtpztq         CPU: 29     Mensaje: \nIoWziFE 
+Clave: MtkMyx         CPU: 24     Mensaje: JOJAZcXnc\ 
+temporal
+--------------------------------------------------------------------------
+[[51613,1],2]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: QvaX5L         CPU: 26     Mensaje: XZYUaNrjN 
+Clave: evHv2r         CPU: 7     Mensaje: pkmopKnpT 
+Clave: EvRBeW         CPU: 20     Mensaje: SddhIVHKNoz 
+Clave: KvZDEw         CPU: 23     Mensaje: vhtM`eBWG 
+Clave: kwm2Ee         CPU: 10     Mensaje: HOvpaItWA 
+Clave: owKlXA         CPU: 12     Mensaje: zwQOxEA[F 
+Clave: OxlQtQ         CPU: 25     Mensaje: vG_sGLYeD 
+Clave: Kxsl8b         CPU: 23     Mensaje: nnc[fWLYs 
+Clave: ayq7pj         CPU: 5     Mensaje: bEwL^DFZSB 
+Clave: QytHkQ         CPU: 26     Mensaje: HMa\eyUsI 
+Clave: myIbAo         CPU: 11     Mensaje: [beaQENTK 
+Clave: EyIdqF         CPU: 20     Mensaje: RoT\vxVhn 
+Clave: Oz9kzj         CPU: 25     Mensaje: ^]FByjSbv 
+Clave: Szh1ej         CPU: 27     Mensaje: A_ULqXRjx 
+Clave: SzmKg7         CPU: 27     Mensaje: Wzmb_FzaC 
+Clave: uzKV5H         CPU: 15     Mensaje: WDJ_ht\NQ 
+Clave: 4zXZBD         CPU: 2     Mensaje: ZWZsy`Qlj 
+Clave: IAbIah         CPU: 22     Mensaje: aPEOmcBVE 
+Clave: 0AnkOA         CPU: 0     Mensaje: kpl^Divja 
+Clave: sADIxT         CPU: 14     Mensaje: YkqZqOgmd 
+Clave: GAXxZI         CPU: 21     Mensaje: TrGZMpwxip 
+Clave: AB3rQF         CPU: 18     Mensaje: pcu`Kajc` 
+Clave: 2BVw3l         CPU: 1     Mensaje: eipqa\SISb 
+Clave: iCBrd2         CPU: 9     Mensaje: pT[gNFrZG 
+Clave: wCSU0p         CPU: 16     Mensaje: ED_xZNelE 
+Clave: 0CSNmQ         CPU: 0     Mensaje: gIyo_xYKd[yn 
+Clave: WD6qKP         CPU: 29     Mensaje: QN]wkr^xb 
+Clave: WDiNa8         CPU: 29     Mensaje: A`mygLsUUD 
+Clave: GDnIsb         CPU: 21     Mensaje: JVmxAm`_m 
+Clave: QDCOV4         CPU: 26     Mensaje: DaoLiWyl[ 
+Clave: UDOv4L         CPU: 28     Mensaje: lkGGxHC^J 
+Clave: wE3Rcb         CPU: 16     Mensaje: ]qOJG`vFx 
+Clave: WEdqk9         CPU: 29     Mensaje: wcGpGViHU 
+Clave: mEigUC         CPU: 11     Mensaje: D\iUjjYHN 
+Clave: EEjFAH         CPU: 20     Mensaje: n\IxdMXEkN 
+Clave: WEtqnH         CPU: 29     Mensaje: BsqTliXFV 
+Clave: uEjmfG         CPU: 15     Mensaje: vUu_ocAlq 
+Clave: wEC2ku         CPU: 16     Mensaje: Le^t]UbT_ 
+Clave: 0EE8RR         CPU: 0     Mensaje: lmHzQjyWR 
+Clave: 5v6Q3L         CPU: 2     Mensaje: Odz_UBTyRQ 
+Clave: lwbqlE         CPU: 10     Mensaje: RSsKJbRYI 
+Clave: VwF4XR         CPU: 28     Mensaje: BAyJpP[rCH 
+Clave: xwwdTo         CPU: 16     Mensaje: F\LkYHDebO 
+Clave: Lx5wD4         CPU: 23     Mensaje: `sPuWEYcUvV 
+Clave: rxbacx         CPU: 13     Mensaje: pzDj_db^LB 
+Clave: TwPsiT         CPU: 27     Mensaje: c`jyewb[y 
+Clave: Pxv2Wz         CPU: 25     Mensaje: QZoZ`rTB] 
+Clave: 3yERq0         CPU: 1     Mensaje: IpFB^Znlr 
+Clave: xyDll7         CPU: 16     Mensaje: EBLJfUt\vN 
+Clave: 5yLl5I         CPU: 2     Mensaje: MqknyfKLs 
+Clave: fyPekM         CPU: 7     Mensaje: sy\JA\co[ 
+Clave: 5zeWEj         CPU: 2     Mensaje: zyRtZNDPU 
+Clave: RzFWmn         CPU: 26     Mensaje: Tnz\_CKcJU 
+Clave: lzLi8d         CPU: 10     Mensaje: RtHnf^roT 
+Clave: xA9Asz         CPU: 16     Mensaje: QMdHeOVgu 
+Clave: NA5e08         CPU: 24     Mensaje: xlWZntwoK 
+Clave: 3AOI3i         CPU: 1     Mensaje: wnVtM\RyF 
+Clave: JABAcT         CPU: 22     Mensaje: tGSnaosSek 
+Clave: xBk4QU         CPU: 16     Mensaje: eUwiBJA[_ 
+Clave: TAWAVd         CPU: 27     Mensaje: rIA`_aTAA 
+Clave: 7CpiWp         CPU: 3     Mensaje: wDOYyR[wI 
+Clave: LCsr36         CPU: 23     Mensaje: FGiAbgDy[ 
+Clave: nCG1MJ         CPU: 11     Mensaje: cuYJAQmRv 
+Clave: NCM0pl         CPU: 24     Mensaje: Jm^YDzMfo 
+Clave: nCXl9l         CPU: 11     Mensaje: rlvlqATTZ 
+Clave: JCYEeg         CPU: 22     Mensaje: VXDXcGKNk 
+Clave: tD6gB5         CPU: 14     Mensaje: pJPIlgVjH 
+Clave: RDuzey         CPU: 26     Mensaje: qTF_gNSqa 
+Clave: REuxBn         CPU: 26     Mensaje: QxxyyJJFw 
+Termine
+Termine
+Termine
+Termine
+Clave: 7EyJKq         CPU: 3     Mensaje: ZqrF]pCln 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+11 15
+--------------------------------------------------------------------------
+[[37352,1],15]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: sb3Rqx         CPU: 14     Mensaje: nTvfGAthU 
+Clave: sb5al8         CPU: 14     Mensaje: `\e^ilN[O 
+Clave: sb7IWV         CPU: 14     Mensaje: E`f`sVbfx 
+Clave: WbibVM         CPU: 29     Mensaje: tQmsc^z]q 
+Clave: 4bBvpD         CPU: 2     Mensaje: kpSDSpvHKH 
+Clave: gbIE0m         CPU: 8     Mensaje: ^rVZQbLdco 
+Clave: gca3Ig         CPU: 8     Mensaje: bers]vtHG 
+Clave: mcfzMA         CPU: 11     Mensaje: zWqwxSYaG 
+Clave: gcutjc         CPU: 8     Mensaje: VbbTQTWBU 
+Clave: acuAZh         CPU: 5     Mensaje: qROmP[li` 
+Clave: wd5Chz         CPU: 16     Mensaje: hJhjgFQFq 
+Clave: WdjOMA         CPU: 29     Mensaje: AuHweYYhsiD 
+Clave: 6dTcMm         CPU: 3     Mensaje: ACx\wDuvr 
+Clave: odTmI2         CPU: 12     Mensaje: DKHxxXvgLX 
+Clave: 4evz8i         CPU: 2     Mensaje: sTjWpcUwK 
+Clave: ieIA1h         CPU: 9     Mensaje: giSRXX]G` 
+Clave: xbVNJ3         CPU: 16     Mensaje: NTUQ`NGh_^ 
+Clave: vbNPpV         CPU: 15     Mensaje: bc_TvrlVB 
+Clave: BcwqLt         CPU: 18     Mensaje: yM`EsX]mvHy 
+Clave: xdAnvH         CPU: 16     Mensaje: rIdvAMXEQ 
+Clave: JdImEP         CPU: 22     Mensaje: mMhThGWc[ 
+Clave: VenOe2         CPU: 28     Mensaje: WtRKNbo^M 
+Clave: tefdrs         CPU: 14     Mensaje: Pe^zaYUGd 
+Clave: jetFnb         CPU: 9     Mensaje: CJPpTvPowL 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+19 23
+--------------------------------------------------------------------------
+[[26117,1],1]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 20 with PID 675 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------

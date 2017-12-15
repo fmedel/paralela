@@ -1,0 +1,16 @@
+--------------------------------------------------------------------------
+[[65339,1],2]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: S02JI4         CPU: 27     Mensaje: ]kFKj]OCE 
+Clave: q0ag8B         CPU: 13     Mensaje: aWTRXZUJz 
+Clave: q0bB3p         CPU: 13     Mensaje: qp`Da[vrx 
+--------------------------------------------------------------------------
+mpirun noticed that process rank 19 with PID 39782 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------

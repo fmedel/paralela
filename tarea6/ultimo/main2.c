@@ -6,7 +6,7 @@
 #include <mpi.h>
 
 
-char diccionario[]="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char diccionario[]="! #$%&'()*+,-./:;<=>?@[]\^_`{}|~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 
@@ -26,8 +26,8 @@ int main(int argc, char** argv)
 
     MPI_Comm_rank(MPI_COMM_WORLD, &nodo);
 
-    int inicio = (62/total_cpus)*nodo;
-    int fin = (62/total_cpus)*(nodo+1);
+    int inicio = (94/total_cpus)*nodo;
+    int fin = (94/total_cpus)*(nodo+1);
 
     int largo_desencriptado;
     int i,j,k,l,m,t;
@@ -48,18 +48,18 @@ int main(int argc, char** argv)
     for(i=inicio; i<fin; i++)
     {
 
-        for(j=31; j<62; j++)
+        for(j=3; j<30; j++)
         {
 
-            for(k=0; k<62; k++)
+            for(k=0; k<94; k++)
             {
 
-                for(l=0; l<62; l++)
+                for(l=0; l<94; l++)
                 {
 
-                    for(m=0; m<62; m++)
+                    for(m=0; m<94; m++)
                     {
-                      for (t = 0; t < 62; t++) {
+                      for (t = 0; t < 94; t++) {
                         free(texto);
                         palabra[0]= diccionario[i];
                         palabra[1]= diccionario[j];

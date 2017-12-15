@@ -1,0 +1,119 @@
+--------------------------------------------------------------------------
+[[47793,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 5 with PID 57040 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+[[34778,1],22]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: Q1nxhi         CPU: 26     Mensaje: \cxLn][tm 
+Clave: 81nEll         CPU: 4     Mensaje: lwzmULNwX 
+Clave: 81r50n         CPU: 4     Mensaje: mvDzBCNWw 
+Clave: a23D2K         CPU: 5     Mensaje: eN[aHnZLM 
+Clave: u2BqGO         CPU: 15     Mensaje: eWGWo^gztx 
+Clave: M34ss8         CPU: 24     Mensaje: fKl^PMztW 
+Clave: M39Rj4         CPU: 24     Mensaje: jcZzzbwIt 
+Clave: y3fqUy         CPU: 17     Mensaje: icAwUea^q 
+Clave: I3s90B         CPU: 22     Mensaje: oDLFvURw` 
+Clave: o3BADJ         CPU: 12     Mensaje: YvL`^sKgu 
+Clave: W5ygoa         CPU: 29     Mensaje: inr^lEUgH 
+Clave: q5L2nW         CPU: 13     Mensaje: IPuAjBloL 
+Clave: M5XX4J         CPU: 24     Mensaje: VYfJlZhbX 
+Clave: w6PfSM         CPU: 16     Mensaje: CmVCe_sr] 
+Clave: G6ZCDZ         CPU: 21     Mensaje: afWjkkgCY 
+Clave: c7etO3         CPU: 6     Mensaje: y\nXhISlr 
+Clave: i7N7Mt         CPU: 9     Mensaje: mhQfgtKUU 
+Clave: 67ByoH         CPU: 3     Mensaje: jPoNG`Kmu 
+Clave: c7z1XB         CPU: 6     Mensaje: QTabZKRwLH 
+Clave: u81WJo         CPU: 15     Mensaje: dJ`ulQVd_i 
+Clave: Q8mkeM         CPU: 26     Mensaje: vBvFsInas 
+Clave: O8BNiL         CPU: 25     Mensaje: ZLdeZInwn 
+Clave: S8vUc1         CPU: 27     Mensaje: w]iUUdAEX 
+Clave: q8ISt9         CPU: 13     Mensaje: wfpHQaCR\W 
+Clave: c8YVcd         CPU: 6     Mensaje: JzRmS\B^P 
+Clave: U9S38J         CPU: 28     Mensaje: dZxRPvbKPn 
+Clave: E9TdEH         CPU: 20     Mensaje: DcIaWP_dQm 
+Clave: Gahgy3         CPU: 21     Mensaje: [KlIEiUyo 
+Clave: QaGGYz         CPU: 26     Mensaje: IpT`ISQgb 
+Clave: H1ijX1         CPU: 21     Mensaje: \bGQchxtn 
+Clave: L1HGae         CPU: 23     Mensaje: \QUTkuGyv 
+Clave: z1Nnle         CPU: 17     Mensaje: z^hglQspg 
+Clave: N1TPRJ         CPU: 24     Mensaje: Oh_j`e]AE 
+Clave: B2srU6         CPU: 18     Mensaje: nl\tEkzACv 
+Clave: 52sQQT         CPU: 2     Mensaje: ^LCeaXwAAw 
+Clave: x3uPOx         CPU: 16     Mensaje: GU`JRLxys 
+Clave: P3wYMk         CPU: 25     Mensaje: xxuTbdWNd 
+Clave: F3esLl         CPU: 20     Mensaje: jo[RYGrbd 
+Clave: N3KzV7         CPU: 24     Mensaje: PibifLHmL 
+Clave: 93zQyB         CPU: 4     Mensaje: pgVkPHcQx 
+Clave: 54pWT1         CPU: 2     Mensaje: CDcCkY_EgD 
+Clave: v4Izcg         CPU: 15     Mensaje: ]h_C_dSJD 
+Clave: R4reis         CPU: 26     Mensaje: WB]bi`AnS 
+Clave: P4N8TT         CPU: 25     Mensaje: KsvpD]Yu_ 
+Clave: P4ZmXJ         CPU: 25     Mensaje: O]_[M[HFr 
+Clave: T4XfU8         CPU: 27     Mensaje: DLXe`Mcpr 
+Clave: V5sN03         CPU: 28     Mensaje: NXvDgTWqo 
+Clave: t61ier         CPU: 14     Mensaje: `tCOBub^o 
+Clave: 76nprO         CPU: 3     Mensaje: `Y`MEsuc_ 
+Clave: J6MJoh         CPU: 22     Mensaje: UMonU]_qd 
+Clave: P72Fj8         CPU: 25     Mensaje: jvVNgrhyjT 
+Clave: d6XaVB         CPU: 6     Mensaje: T]puEuuv` 
+Clave: 77CUzW         CPU: 3     Mensaje: M\yiTrRQI 
+Clave: b8gn6P         CPU: 5     Mensaje: jKNyCVxVA 
+Clave: L84GbU         CPU: 23     Mensaje: bw_bu_RVp 
+Clave: F7Rf0f         CPU: 20     Mensaje: xK^eWUDXJ 
+Clave: N8iNOG         CPU: 24     Mensaje: VfTgxRuSW 
+Clave: J900Mo         CPU: 22     Mensaje: f`Vhnrleh 
+Clave: 39aB0X         CPU: 1     Mensaje: URoDbNlC_ 
+Clave: T9b9Xk         CPU: 27     Mensaje: NXQzAIjWt 
+Clave: v9N9HX         CPU: 15     Mensaje: ajDsaBqcb 
+Clave: 39ECTe         CPU: 1     Mensaje: siTQkRD^f 
+Clave: D9S6W6         CPU: 19     Mensaje: A`PNYw`qr 
+Clave: Rafqk9         CPU: 26     Mensaje: lOEMZrFQt 
+Termine
+Termine
+Termine
+Clave: faUUxD         CPU: 7     Mensaje: Iqs_Cm`iq 
+Termine
+Clave: Tao78J         CPU: 27     Mensaje: cgd]`zMYo 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine

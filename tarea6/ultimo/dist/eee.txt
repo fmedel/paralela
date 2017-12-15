@@ -1,0 +1,574 @@
+--------------------------------------------------------------------------
+[[1749,1],16]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: /! 6Dx         CPU: 7     Mensaje: Tev_JvXW[ 
+Clave: )!%4&E         CPU: 4     Mensaje: cRZCIGHeJ 
+Clave: x!^,nx         CPU: 32     Mensaje: VdWefKwO]F 
+Clave: 3!^Eu=         CPU: 17     Mensaje: mf_]wODatk 
+Clave: 9!_9fl         CPU: 20     Mensaje: gUhyJYuQo 
+Clave: !!5LJO         CPU: 0     Mensaje: zWtQmd[No 
+Clave: f!7s_{         CPU: 23     Mensaje: Fujf]FGhd 
+Clave: )!e5;A         CPU: 4     Mensaje: \^YRVVXVA 
+Clave: H!dMV,         CPU: 37     Mensaje: EdXTqeCvd 
+Clave: #!bg+<         CPU: 1     Mensaje: ZZMJfKrko 
+Clave: H!hN:.         CPU: 37     Mensaje: dZsn^Wdaao 
+Clave: -!ixLy         CPU: 6     Mensaje: ZLu]OUsco 
+Clave: 1!iM1s         CPU: 16     Mensaje: WUivje]aJ 
+Clave: ^!sQ:j         CPU: 12     Mensaje: W_GxcHNZM 
+Clave: 3!tImP         CPU: 17     Mensaje: ]jdAZtzgA 
+Clave: ^!z6%Z         CPU: 12     Mensaje: ZIlTUkkIOR 
+Clave: x!N,+|         CPU: 32     Mensaje: ]GUwIs[nf 
+Clave: 9!K;qj         CPU: 20     Mensaje: d[TqdHgRQGo 
+Clave: }!PZ?C         CPU: 14     Mensaje: gwakTvjGQ 
+Clave: f!P^Ld         CPU: 23     Mensaje: fvxdGsQN[ 
+Clave: b!Sv/E         CPU: 21     Mensaje: SADbmg_z^ 
+Clave: =!Wqt-         CPU: 9     Mensaje: V`PrfBKum 
+Clave: ^!Y*L6         CPU: 12     Mensaje: Q`\WHvaDr 
+Clave: J ?^y%         CPU: 38     Mensaje: xC`IrdXaX 
+Clave: 3 >O.M         CPU: 17     Mensaje: Sniz`pmguv 
+Clave: f =X+u         CPU: 23     Mensaje: AeM`cTvGA 
+Clave: F }%&U         CPU: 36     Mensaje: hUsm^GpID 
+Clave: ` ca#>         CPU: 13     Mensaje: ^OyGcvtZB 
+Clave: % h2(l         CPU: 2     Mensaje: TMPhAj^]Nv 
+Clave: L e Q         CPU: 39     Mensaje: T[_NbDudo 
+Clave: } n}ox         CPU: 14     Mensaje: `UJbHgXRh 
+Clave: p mq!e         CPU: 28     Mensaje: FenhXYS`k 
+Clave: L pi_h         CPU: 39     Mensaje: mIri^_cF_ 
+Clave: t z*A!         CPU: 30     Mensaje: kNjeF_jvz 
+Clave: t DLm_         CPU: 30     Mensaje: KOCeQH]fA 
+Clave: J Kylj         CPU: 38     Mensaje: cLsEtFKoZ 
+Clave: ` K_TT         CPU: 13     Mensaje: Ual]pnuLY 
+Clave: 3 Ba @         CPU: 17     Mensaje: QbWo]aYUH 
+Clave: t N@H]         CPU: 30     Mensaje: PmvBNeTOm 
+Clave: l JD|-         CPU: 26     Mensaje: VZmZXgywev 
+Clave: F PHW3         CPU: 36     Mensaje: Gmy_NyjLi 
+Clave: ) Tbkm         CPU: 4     Mensaje: QRLTUOrUM 
+Clave: ? Rx9K         CPU: 10     Mensaje: gfyEFLxkv 
+Clave: 7 T2ge         CPU: 19     Mensaje: g\cAscDsK 
+Clave: %##PA(         CPU: 2     Mensaje: ZiIKr^TXzmGS 
+Clave: J#+?7C         CPU: 38     Mensaje: SXftwNZMhq 
+Clave: r#)R)M         CPU: 29     Mensaje: RgsY^NebP 
+Clave: }#=a{+         CPU: 14     Mensaje: RGSwGOVLr 
+Clave: l#<RKe         CPU: 26     Mensaje: PWzftbM^[ 
+Clave: v#[tCI         CPU: 31     Mensaje: wur]Hmd_G 
+Clave: J#~]#G         CPU: 38     Mensaje: kNm_ifyzZ 
+Clave: v#]A}G         CPU: 31     Mensaje: EhCI_LnrI 
+Clave: 9#:uk-         CPU: 20     Mensaje: Kox]OVGf_ 
+Clave: ^#{)Gh         CPU: 12     Mensaje: hQVpufgta 
+Clave: +#3w(*         CPU: 5     Mensaje: uMqcNt^Ro 
+Clave: ##]N$>         CPU: 1     Mensaje: XYp`nJ_Hnl 
+Clave: %#j :.         CPU: 2     Mensaje: ]_[AgOrnM 
+Clave: ##4Xg!         CPU: 1     Mensaje: DzONhKOXBx 
+Clave: 1#d+YW         CPU: 16     Mensaje: oEg`F`Bfi 
+Clave: [#5k|y         CPU: 11     Mensaje: gGxJDOMBw]_ 
+Clave: z#l@>_         CPU: 33     Mensaje: DkgRgNXop 
+Clave: x#mx:.         CPU: 32     Mensaje: opOwYPyc\ 
+Clave: j#p5P?         CPU: 25     Mensaje: phRGJVqka 
+Clave: =#rP#W         CPU: 9     Mensaje: TYEvPIoyu 
+Clave: v#oT@B         CPU: 31     Mensaje: [dAW]oVvD 
+Clave: ?#m*I9         CPU: 10     Mensaje: j`jdn]swQ 
+Clave: !#j&_z         CPU: 0     Mensaje: l^_FeIjR[ 
+Clave: `#EKhR         CPU: 13     Mensaje: yv]]kDrO[ 
+Clave: %#J.(,         CPU: 2     Mensaje: U\ff]ZEcZ 
+Clave: `#Ij*/         CPU: 13     Mensaje: Fh\OR_YwE 
+Clave: `#INka         CPU: 13     Mensaje: bMMjBrKsu 
+Clave: n#B,:s         CPU: 27     Mensaje: ZSuTTuiDn 
+Clave: 9#AiKp         CPU: 20     Mensaje: i]FJvPJ]E 
+Clave: ^#N^>a         CPU: 12     Mensaje: KYwAvBPAW 
+Clave: +#Qq<g         CPU: 5     Mensaje: fGrUHUGSJ 
+Clave: f#D`BN         CPU: 23     Mensaje: BRgZSF`NBah 
+Clave: x#T8!i         CPU: 32     Mensaje: ]tePcBvrE 
+Clave: !#PT_K         CPU: 0     Mensaje: TxFsVEV[_ 
+Clave: [#NoIt         CPU: 11     Mensaje: zPjzEwtLL 
+Clave: /#VUhB         CPU: 7     Mensaje: VosTyqX^c 
+Clave: `$)!y(         CPU: 13     Mensaje: GccwIkPBE 
+Clave: z$.=DA         CPU: 33     Mensaje: trEz_BvZV 
+Clave: p$$-/`         CPU: 28     Mensaje: I[NDkfd`n 
+Clave: z$:&|&         CPU: 33     Mensaje: pH]pfprR` 
+Clave: +$>7>W         CPU: 5     Mensaje: RiSUBseNl 
+Clave: )$@2ZH         CPU: 4     Mensaje: yY_ZF\Tif 
+Clave: r$17hd         CPU: 29     Mensaje: rYjJjwnemguM 
+Clave: 3$6OJ)         CPU: 17     Mensaje: LVPFkqyAW 
+Clave: B$d)E_         CPU: 34     Mensaje: tdNYcWkFb 
+Clave: +$w(Jb         CPU: 5     Mensaje: tION`bwbY 
+Clave: x$zI:+         CPU: 32     Mensaje: BBbidMyNt 
+Clave: ~$q_yn         CPU: 15     Mensaje: [CVX_vxSZ 
+Clave: +$L Gn         CPU: 5     Mensaje: b]Ksk]KJUO 
+Clave: )$DuiO         CPU: 4     Mensaje: M]ddjg`d` 
+Clave: +$R )#         CPU: 5     Mensaje: gOouRfPVT 
+Clave: l$MPFM         CPU: 26     Mensaje: TXsN]RBpPS 
+Clave: 5$TwGq         CPU: 18     Mensaje: FZERHqNMz 
+Clave: D$J2r/         CPU: 35     Mensaje: vEXD]ttHo 
+Clave: L$R3J^         CPU: 39     Mensaje: MxxzVlHkK 
+Clave: j%$T^~         CPU: 25     Mensaje: Gvo_T[hlg 
+Clave: ?$Z7gp         CPU: 10     Mensaje: Cnpbi\PIp 
+Clave: j%+,U5         CPU: 25     Mensaje: WXPPRvJh_ 
+Clave: x%%dra         CPU: 32     Mensaje: Jffj\rNla 
+Clave: 7%*v|-         CPU: 19     Mensaje: esunC_kDF 
+Clave: l%&CZL         CPU: 26     Mensaje: lJj`KsTXQ 
+Clave: =%,XUM         CPU: 9     Mensaje: tE[_CaiDc 
+Clave: '%!Qg`         CPU: 3     Mensaje: [\alD^^\N 
+Clave: f%'JI=         CPU: 23     Mensaje: QV[NKxxL_ 
+Clave: B%(#ki         CPU: 34     Mensaje: nHLn\cr^R[ 
+Clave: ?%.!Ts         CPU: 10     Mensaje: bK^Lsvdn]T 
+Clave: ;%+JQH         CPU: 8     Mensaje: WksSDNdhR 
+Clave: ;%,bjK         CPU: 8     Mensaje: JrKSmmMFx 
+Clave: )%]]|]         CPU: 4     Mensaje: tJ`KM`hXf 
+Clave: 7%4|z]         CPU: 19     Mensaje: OSjJHgsEu 
+Clave: '%@3ZD         CPU: 3     Mensaje: Ll[pNTzYL 
+Clave: F%9U31         CPU: 36     Mensaje: etPZTeyIH 
+Clave: #%{/6+         CPU: 1     Mensaje: `TqCbqcQKz 
+Clave: t%hHZk         CPU: 30     Mensaje: \WYWuykCN\ 
+Clave: J%xHNy         CPU: 38     Mensaje: JNv`BF`IH` 
+Clave: `%Ark1         CPU: 13     Mensaje: qAPlR[ead 
+Clave: ;%m<c[         CPU: 8     Mensaje: OpYsn]iyTck 
+Clave: `%Hk,A         CPU: 13     Mensaje: HjcwSXyRbm 
+Clave: L%vst>         CPU: 39     Mensaje: YZkXkD]Mg 
+Clave: ;%sIWM         CPU: 8     Mensaje: fvlGjyyZa 
+Clave: ^%J1{T         CPU: 12     Mensaje: wHcpCSAxJ 
+Clave: ?%D)@n         CPU: 10     Mensaje: kbjSglIIR 
+Clave: ^%OHr$         CPU: 12     Mensaje: EpPdKIztS 
+Clave: 5%P2'Y         CPU: 18     Mensaje: NtdWVrnTt 
+Clave: H%M.,J         CPU: 37     Mensaje: Mmb`IpQaE 
+Clave: !%G3y~         CPU: 0     Mensaje: fELYep\QN 
+Clave: )%M6VO         CPU: 4     Mensaje: NNLZXF^yw 
+Clave: )%S@h=         CPU: 4     Mensaje: raQgNmwnMW 
+Clave: #%Qm70         CPU: 1     Mensaje: OaMzNr_aP 
+Clave: 1%Yhy8         CPU: 16     Mensaje: ySj_mPRS[GJw 
+Clave: [&%*W7         CPU: 11     Mensaje: UpxoMwVGl 
+Clave: 3&/!3C         CPU: 17     Mensaje: WmmHBmdEf 
+Clave: z&|b0%         CPU: 33     Mensaje: maWdAdPdC 
+Clave: 3&[IcV         CPU: 17     Mensaje: IqQVIxbed 
+Clave: /&@%%G         CPU: 7     Mensaje: ZfxBTyN]E 
+Clave: 1&]vh/         CPU: 16     Mensaje: ol\WzJV_v 
+Clave: p&|wRA         CPU: 28     Mensaje: axnBQCeZC 
+Clave: +&lUfs         CPU: 5     Mensaje: BKVXImzmT 
+Clave: l&8c7c         CPU: 26     Mensaje: SRztV_iD^ 
+Clave: J&Fwbk         CPU: 38     Mensaje: ySN`xWn[a 
+Clave: 5&hh^w         CPU: 18     Mensaje: unZFSFFTx 
+Clave: b&xCZz         CPU: 21     Mensaje: xFw]XQyKWW 
+Clave: ?&lc_1         CPU: 10     Mensaje: oAkPoajiz 
+Clave: ~&fSAr         CPU: 15     Mensaje: kVCoaCf_p 
+Clave: 3&q1L_         CPU: 17     Mensaje: wBZccnawdEs 
+Clave: +&Qqcw         CPU: 5     Mensaje: LSJm[qg`t 
+Clave: t&P02a         CPU: 30     Mensaje: RPwvt]Kdx 
+Clave: f&H*<g         CPU: 23     Mensaje: EOvAmdMD[ 
+Clave: b'$,_F         CPU: 21     Mensaje: _SNMHrMuy 
+Clave: %''y5F         CPU: 2     Mensaje: JsEZdDckX 
+Clave: L&RSt&         CPU: 39     Mensaje: xouxAy_quy 
+Clave: D&G;81         CPU: 35     Mensaje: ZlTyCghAF 
+Clave: ~&F*[{         CPU: 15     Mensaje: A\qOCpIcL 
+Clave: n&KUw?         CPU: 27     Mensaje: irGtZDNHz 
+Clave: 7'=b3A         CPU: 19     Mensaje: I`PA[IkZOi 
+Clave: d&Wd,x         CPU: 22     Mensaje: KbiP\z]vv 
+Clave: -'^2R.         CPU: 6     Mensaje: o[iKzuCbP 
+Clave: `'[mq[         CPU: 13     Mensaje: oTyJjBaYz 
+Clave: j'`X9A         CPU: 25     Mensaje: JczFnPxRBd 
+Clave: J'l`A#         CPU: 38     Mensaje: NnrIi[MvN 
+Clave: D'*tqo         CPU: 35     Mensaje: kcnP\x`uj 
+Clave: j'7z?q         CPU: 25     Mensaje: BGVyvt_Uo 
+--------------------------------------------------------------------------
+[[20239,1],10]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+[[20381,1],7]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: V#!IcL         CPU: 29     Mensaje: TxOFyTRQp 
+Clave: %##PA(         CPU: 1     Mensaje: ZiIKr^TXzmGS 
+Clave: A#$R6]         CPU: 22     Mensaje: y[sNQYuNEDx 
+Clave: r#)R)M         CPU: 19     Mensaje: RgsY^NebP 
+Clave: >$$^nP         CPU: 6     Mensaje: gO]]EPbqU 
+Clave: P$(sj6         CPU: 27     Mensaje: `RnPnAFHx 
+Clave: 0$(dT]         CPU: 10     Mensaje: Zw`DplpMW 
+Clave: 6$)DCC         CPU: 12     Mensaje: QvWNaKKoSw 
+Clave: y# ET@         CPU: 21     Mensaje: VeAxOcZBq 
+Clave: p$$-/`         CPU: 18     Mensaje: I[NDkfd`n 
+Clave: N$'Du|         CPU: 26     Mensaje: zcRkGBnIJ 
+Clave: `$)!y(         CPU: 8     Mensaje: GccwIkPBE 
+Clave: ]$(]tq         CPU: 7     Mensaje: _ab[E\Cce 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+--------------------------------------------------------------------------
+[[1534,1],3]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: @#:_I-         CPU: 7     Mensaje: J]GkVYinR 
+Clave: q#{ffN         CPU: 19     Mensaje: GVOv_hoQs 
+Clave: ^#{)Gh         CPU: 8     Mensaje: hQVpufgta 
+Clave: !#j&_z         CPU: 0     Mensaje: l^_FeIjR[ 
+Clave: z#l@>_         CPU: 22     Mensaje: DkgRgNXop 
+Clave: :#lLuO         CPU: 5     Mensaje: `ySWrzX\d 
+Clave: *#qOdL         CPU: 3     Mensaje: iFYSGMiIH 
+Clave: =#rP#W         CPU: 6     Mensaje: TYEvPIoyu 
+Clave: :#t$;[         CPU: 5     Mensaje: iNh]yAVgq 
+Clave: n#B,:s         CPU: 18     Mensaje: ZSuTTuiDn 
+Clave: 8#FubA         CPU: 13     Mensaje: dMYwf\WAp 
+Clave: ^#N^>a         CPU: 8     Mensaje: KYwAvBPAW 
+Clave: !#PT_K         CPU: 0     Mensaje: TxFsVEV[_ 
+Clave: I#PC*D         CPU: 25     Mensaje: ju\ZoxtRD 
+Clave: V#!IcL         CPU: 29     Mensaje: TxOFyTRQp 
+Clave: %##PA(         CPU: 1     Mensaje: ZiIKr^TXzmGS 
+Clave: A#$R6]         CPU: 22     Mensaje: y[sNQYuNEDx 
+Clave: r#)R)M         CPU: 19     Mensaje: RgsY^NebP 
+Clave: J#+?7C         CPU: 25     Mensaje: SXftwNZMhq 
+Clave: 9#:uk-         CPU: 13     Mensaje: Kox]OVGf_ 
+Clave: l#<RKe         CPU: 17     Mensaje: PWzftbM^[ 
+Clave: }#=a{+         CPU: 9     Mensaje: RGSwGOVLr 
+Clave: J#~]#G         CPU: 25     Mensaje: kNm_ifyzZ 
+Clave: +#3w(*         CPU: 3     Mensaje: uMqcNt^Ro 
+Clave: [#5k|y         CPU: 7     Mensaje: gGxJDOMBw]_ 
+Clave: S#fDvh         CPU: 28     Mensaje: URgkobL^m 
+Clave: c#k Oa         CPU: 14     Mensaje: \x]VAdlVdW 
+Clave: %#j :.         CPU: 1     Mensaje: ]_[AgOrnM 
+Clave: x#mx:.         CPU: 21     Mensaje: opOwYPyc\ 
+Clave: .#nh:{         CPU: 4     Mensaje: XCgcwx_dBq 
+Clave: (#uS@s         CPU: 2     Mensaje: `DvgPPaeT 
+Clave: 9#AiKp         CPU: 13     Mensaje: i]FJvPJ]E 
+Clave: M#CM|{         CPU: 26     Mensaje: WGIgMi]xY 
+Clave: f#D`BN         CPU: 15     Mensaje: BRgZSF`NBah 
+Clave:  #K62[         CPU: 0     Mensaje: fSXS`U_KL 
+Clave: %#J.(,         CPU: 1     Mensaje: U\ff]ZEcZ 
+Clave: [#NoIt         CPU: 7     Mensaje: zPjzEwtLL 
+Clave: +#Qq<g         CPU: 3     Mensaje: fGrUHUGSJ 
+Clave: x#T8!i         CPU: 21     Mensaje: ]tePcBvrE 
+Clave: V#QwiM         CPU: 29     Mensaje: nLfVj^UgT 
+Clave: M#Xcy$         CPU: 26     Mensaje: lx^xw^pPr 
+Clave: y# ET@         CPU: 21     Mensaje: VeAxOcZBq 
+Clave: m#+2}E         CPU: 17     Mensaje: IhQx[wHMDgc 
+Clave: <#.X m         CPU: 5     Mensaje: pIRKXmG[G 
+Clave: v#[tCI         CPU: 20     Mensaje: wur]Hmd_G 
+Clave: ##]N$>         CPU: 0     Mensaje: XYp`nJ_Hnl 
+Clave: v#]A}G         CPU: 20     Mensaje: EhCI_LnrI 
+Clave: T#^pHy         CPU: 28     Mensaje: bOtVCHvhf 
+Clave: a#|*Oi         CPU: 13     Mensaje: oavXSEGi]A 
+Clave: N#0d_X         CPU: 26     Mensaje: jWqdZjg[a 
+Clave: ##4Xg!         CPU: 0     Mensaje: DzONhKOXBx 
+Clave: ,#9~)^         CPU: 3     Mensaje: W`mrKbzqA 
+Clave: 1#d+YW         CPU: 10     Mensaje: oEg`F`Bfi 
+Clave: ?#m*I9         CPU: 6     Mensaje: j`jdn]swQ 
+Clave: v#oT@B         CPU: 20     Mensaje: [dAW]oVvD 
+Clave: N#qe59         CPU: 26     Mensaje: ^ClHc_vZa 
+Clave: j#p5P?         CPU: 16     Mensaje: phRGJVqka 
+Clave: a#B<Q7         CPU: 13     Mensaje: upx]iTTZ` 
+Clave: `#EKhR         CPU: 8     Mensaje: yv]]kDrO[ 
+Clave: `#Ij*/         CPU: 8     Mensaje: Fh\OR_YwE 
+Clave: `#INka         CPU: 8     Mensaje: bMMjBrKsu 
+Clave: N#M4l3         CPU: 26     Mensaje: ]UxINLXvW 
+Clave: /#VUhB         CPU: 4     Mensaje: VosTyqX^c 
+Termine
+Termine
+Termine
+Clave: Q#Yn;7         CPU: 27     Mensaje: IkTNBZCb\ 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+--------------------------------------------------------------------------
+[[31894,1],12]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: z$.=DA         CPU: 22     Mensaje: trEz_BvZV 
+Clave: @$/l(c         CPU: 7     Mensaje: sjfnNatbw 
+Clave: z$:&|&         CPU: 22     Mensaje: pH]pfprR` 
+Clave: @$:PW=         CPU: 7     Mensaje: qPSTCXIRA]ZS 
+Clave: C$:U`;         CPU: 23     Mensaje: sRj`QHuF\l 
+Clave: $$~u=3         CPU: 1     Mensaje: cSmF`ZYYr 
+Clave: I$iXdP         CPU: 25     Mensaje: vyhXA^y_l 
+Clave: ~$q_yn         CPU: 10     Mensaje: [CVX_vxSZ 
+Clave: {$r];p         CPU: 9     Mensaje: Ieynk`REi 
+Clave: $$P) 1         CPU: 1     Mensaje: TuwLn[DTbV 
+Clave: e$Qx8B         CPU: 15     Mensaje: ]aqU^ovKp 
+Clave: L$R3J^         CPU: 26     Mensaje: MxxzVlHkK 
+--------------------------------------------------------------------------
+mpirun noticed that process rank 11 with PID 71938 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+[[17158,1],2]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: z$.=DA         CPU: 22     Mensaje: trEz_BvZV 
+Clave: z$:&|&         CPU: 22     Mensaje: pH]pfprR` 
+Clave: @$/l(c         CPU: 7     Mensaje: sjfnNatbw 
+Clave: C$:U`;         CPU: 23     Mensaje: sRj`QHuF\l 
+Clave: @$:PW=         CPU: 7     Mensaje: qPSTCXIRA]ZS 
+Clave: $$~u=3         CPU: 1     Mensaje: cSmF`ZYYr 
+Clave: I$iXdP         CPU: 25     Mensaje: vyhXA^y_l 
+Clave: ~$q_yn         CPU: 10     Mensaje: [CVX_vxSZ 
+Clave: {$r];p         CPU: 9     Mensaje: Ieynk`REi 
+Clave: e$Qx8B         CPU: 15     Mensaje: ]aqU^ovKp 
+Clave: $$P) 1         CPU: 1     Mensaje: TuwLn[DTbV 
+Clave: L$R3J^         CPU: 26     Mensaje: MxxzVlHkK 
+Clave: C$RU<g         CPU: 23     Mensaje: m^ofdxGAm 
+Clave: 5$TwGq         CPU: 12     Mensaje: FZERHqNMz 
+Clave: '%!Qg`         CPU: 2     Mensaje: [\alD^^\N 
+Clave: {%%vJg         CPU: 9     Mensaje: xMPPwEIpr 
+Clave: R%'7 |         CPU: 28     Mensaje: g]G^`\WVX 
+Clave: =%,XUM         CPU: 6     Mensaje: tE[_CaiDc 
+Clave: C%;Vg6         CPU: 23     Mensaje: XNr_uxDqq 
+Clave: '%@3ZD         CPU: 2     Mensaje: Ll[pNTzYL 
+Clave: C%]1W_         CPU: 23     Mensaje: k_bSnOb`] 
+Clave: 2%~aK&         CPU: 11     Mensaje: ywgaSp]Ys 
+Clave: F%9U31         CPU: 24     Mensaje: etPZTeyIH 
+Clave: @%cp?:         CPU: 7     Mensaje: lT_FxJJod 
+Clave: t%hHZk         CPU: 20     Mensaje: \WYWuykCN\ 
+Clave: @%j9DQ         CPU: 7     Mensaje: WEneePOvE 
+Clave: *%jsU2         CPU: 3     Mensaje: nQYEnF_gX 
+Clave: $%lszW         CPU: 1     Mensaje: pRXKrwec] 
+Clave: U%shb'         CPU: 29     Mensaje: bOsdkrcMX 
+Clave: L%vst>         CPU: 26     Mensaje: YZkXkD]Mg 
+Clave: k%y&jX         CPU: 17     Mensaje: E_NnQjuDz 
+Clave: !%G3y~         CPU: 0     Mensaje: fELYep\QN 
+Clave: ^%J1{T         CPU: 8     Mensaje: wHcpCSAxJ 
+Clave: 8%J<AJ         CPU: 13     Mensaje: Gcsdc\jiUv 
+Clave: ^%OHr$         CPU: 8     Mensaje: EpPdKIztS 
+Clave: 5%P2'Y         CPU: 12     Mensaje: NtdWVrnTt 
+Clave: R&$BKe         CPU: 28     Mensaje: ^dagzqBlC 
+Clave: *&.=_?         CPU: 3     Mensaje: TKO\s^YTHa 
+Clave: O&:#?'         CPU: 27     Mensaje: ro[LblG_r 
+Clave: z&|b0%         CPU: 22     Mensaje: maWdAdPdC 
+Clave: ~&fSAr         CPU: 10     Mensaje: kVCoaCf_p 
+Clave: 5&hh^w         CPU: 12     Mensaje: unZFSFFTx 
+Clave: e&t];F         CPU: 15     Mensaje: dbHmYXXo[ 
+Clave: b&xCZz         CPU: 14     Mensaje: xFw]XQyKWW 
+Clave: ~&F*[{         CPU: 10     Mensaje: A\qOCpIcL 
+Clave: n&KUw?         CPU: 18     Mensaje: irGtZDNHz 
+Clave: t&P02a         CPU: 20     Mensaje: RPwvt]Kdx 
+Clave: L&RSt&         CPU: 26     Mensaje: xouxAy_quy 
+Clave: $'#%kZ         CPU: 1     Mensaje: Dz[tsjgfH 
+Clave: b'$,_F         CPU: 14     Mensaje: _SNMHrMuy 
+Clave: $'.Sv}         CPU: 1     Mensaje: lPvQoEB`d 
+Clave: :'=|!a         CPU: 5     Mensaje: tJWdMgYRA 
+Clave: I']$;F         CPU: 25     Mensaje: R_PBCILfc 
+Clave: -'^2R.         CPU: 4     Mensaje: o[iKzuCbP 
+Clave: $'}F|P         CPU: 1     Mensaje: euLDbmn`qe 
+Clave: {'49;v         CPU: 9     Mensaje: \VUmwtCAO 
+Clave: 5'a'OR         CPU: 12     Mensaje: pMibksMaRs 
+Clave: 2'tPFF         CPU: 11     Mensaje: ZWrG\iAZdjF 
+Clave: q'xyL|         CPU: 19     Mensaje: ApfTH^OSm 
+Clave: ~'Bv!u         CPU: 10     Mensaje: PxZKyN^Or 
+Clave: F'WTk,         CPU: 24     Mensaje: qV^fJTTSs 
+Clave: ^((x;3         CPU: 8     Mensaje: ^IDq\rrkb 
+Clave: =(;{A*         CPU: 6     Mensaje: sxICLdXH\ 
+Clave: ~(<v|B         CPU: 10     Mensaje: Zcbh^Rj_a_ 
+Clave: $(`9W4         CPU: 1     Mensaje: BZJSGUjzf 
+Clave: {(1S^          CPU: 9     Mensaje: Bh[TLytPT 
+Clave: $(2ap8         CPU: 1     Mensaje: ezMLzokIE 
+Clave: e(6Ofx         CPU: 15     Mensaje: UKRRhJsEr 
+Clave: U(b28/         CPU: 29     Mensaje: aKzfBqQrIa 
+Clave: ~(H?F8         CPU: 10     Mensaje: OSmvoZOMF 
+Clave: ')'aMn         CPU: 2     Mensaje: oblK`UGKHw 
+Clave: q)/f7R         CPU: 19     Mensaje: v]ueECc]\NuU 
+Clave: :)[5P$         CPU: 5     Mensaje: GgP`CTApq 
+Clave: ^){_h%         CPU: 8     Mensaje: TlUQvQS]Q 
+Clave: ^)|jx/         CPU: 8     Mensaje: wcUzHtVUq 
+Clave: L)c6k=         CPU: 26     Mensaje: zPNaBaRjae 
+Clave: *)i?z>         CPU: 3     Mensaje: Sj^hotjLy 
+Clave: t)dI1Z         CPU: 20     Mensaje: ldYKcZbwfM 
+Clave: @)kR#*         CPU: 7     Mensaje: FswslkOAB 
+Clave: !)kzmA         CPU: 0     Mensaje: sVOPi^ydm 
+Clave: C)nDn'         CPU: 23     Mensaje: RUhRTHfaY 
+Clave: ^)o4>q         CPU: 8     Mensaje: UaljTF`Uq 
+Clave: e)qxRG         CPU: 15     Mensaje: gQSGnjXRK 
+Clave: =)C^~H         CPU: 6     Mensaje: DXPojSIfi 
+Clave: q)JF>          CPU: 19     Mensaje: oi_CmJGDj 
+Clave: w)U'8P         CPU: 21     Mensaje: VcEwu\a]\Y 
+Clave: 8)WK?}         CPU: 13     Mensaje: yMdQESJRr 
+Clave: =*$rrA         CPU: 6     Mensaje: eszzMAiDg 
+Clave: 5* t_@         CPU: 12     Mensaje: D`GfS^OjVioA 
+Clave: h*(4_k         CPU: 16     Mensaje: zQHNlQRQl 
+Clave: =*.vbU         CPU: 6     Mensaje: RtrMSySmJ 
+Clave: I*+5:'         CPU: 25     Mensaje: Qf[rjD^Tr 
+Clave: O*.7/D         CPU: 27     Mensaje: ^RUzMYIai 
+Clave: C*>Wr=         CPU: 23     Mensaje: QmNMjoNIY 
+Clave: O*?^<.         CPU: 27     Mensaje: `OiWthlog 
+Clave: !*}KYA         CPU: 0     Mensaje: hBbufLpvt 
+Clave: @*|`y.         CPU: 7     Mensaje: QeQ^MCeLCv 
+Clave: R*@19E         CPU: 28     Mensaje: O`aWqx\To 
+Clave: $*2G2l         CPU: 1     Mensaje: abVGTLWJg 
+Clave: n*6Ds>         CPU: 18     Mensaje: ztjysvZbV 
+Clave: 5*aGz.         CPU: 12     Mensaje: IgzmrFSmLeps 
+Clave: O*pX>Y         CPU: 27     Mensaje: Hx]uBCnua 
+Clave: t*i=NV         CPU: 20     Mensaje: jAhGKzSxP 
+Clave: R*hk+W         CPU: 28     Mensaje: ]EbLHCBy^S\ 
+Clave: **t}OH         CPU: 3     Mensaje: ZyHdDY`WSm 
+Clave: h*rl!Q         CPU: 16     Mensaje: mYaNijFrb 
+Clave: '*v}wX         CPU: 2     Mensaje: VTZDVCyuU 
+Clave: =*KL<<         CPU: 6     Mensaje: iWIkGRZzn 
+Clave: L*PY_c         CPU: 26     Mensaje: byiHwYesZ 
+Clave: 8*W{z;         CPU: 13     Mensaje: hPFXW^mik 
+Clave: ^*Xk0!         CPU: 8     Mensaje: zbBjFHxP\ 
+Clave: e+$hcl         CPU: 15     Mensaje: vvmjEUlFX 
+Clave: :+${Rb         CPU: 5     Mensaje: ZL]aiSBNl 
+Clave: b+ AO7         CPU: 14     Mensaje: TkdFeMMFFC 
+Clave: !+'PDy         CPU: 0     Mensaje: bhgoIPDuK 
+Clave: w+.nyu         CPU: 21     Mensaje: ][QhakIEI 
+Clave: R*ZB&+         CPU: 28     Mensaje: JnglQJEfS 
+Clave: '+,j}`         CPU: 2     Mensaje: [i^RSUkWb 
+Clave: b+/-cM         CPU: 14     Mensaje: GhPqw^dfS 
+Clave: =+]GMu         CPU: 6     Mensaje: Gj]Nstlw^ 
+Clave: C+[PRB         CPU: 23     Mensaje: [NybKWzvH 
+Clave: e+`H0?         CPU: 15     Mensaje: uaLNSSWva 
+Clave: I+~*2.         CPU: 25     Mensaje: gJUaIaHo^ 
+Clave: C+4i,R         CPU: 23     Mensaje: `bGoGX`uN 
+Clave: O+4[pS         CPU: 27     Mensaje: CfKVIVJyW 
+Clave: ^+d yg         CPU: 8     Mensaje: RsAKyY^Gp 
+Clave: e+h&cD         CPU: 15     Mensaje: oM_EjCtTu 
+Clave: h+8G|T         CPU: 16     Mensaje: sNeufibUW 
+Clave: q+g`3N         CPU: 19     Mensaje: PCFeqsEBS 
+Clave: q+kgM3         CPU: 19     Mensaje: aepK`FQNJ 
+Clave: :+lyO[         CPU: 5     Mensaje: iH]AqEbTQ 
+Clave: w+C1G(         CPU: 21     Mensaje: ifgdYgJWs 
+Clave: F+CXp^         CPU: 24     Mensaje: zXa^dxh_j 
+Clave: ~+Sp]b         CPU: 10     Mensaje: EP`m\aziI 
+Clave: 8+X|8W         CPU: 13     Mensaje: ifocjJA\P 
+Clave: :+W^o>         CPU: 5     Mensaje: cldZXSomQ 
+Clave: w,'9~y         CPU: 21     Mensaje: qpzFpVGqSv 
+Clave: {, qs:         CPU: 9     Mensaje: M[QJajKEpz 
+Clave: h,%sgi         CPU: 16     Mensaje: `^Jns[AUK 
+Clave: q,<:s5         CPU: 19     Mensaje: DJBiQifsOLV 
+Clave: ',`;[(         CPU: 2     Mensaje: Bke^jNjhP 
+Clave: F,8Us`         CPU: 24     Mensaje: ^BJZOdbrN 
+Clave: *,7X6!         CPU: 3     Mensaje: senTjYQxw 
+Clave: F,b9Wr         CPU: 24     Mensaje: q^OMhN^Xt 
+Clave: -,aFEa         CPU: 4     Mensaje: INABKkSKo 
+Clave: k,lO+A         CPU: 17     Mensaje: HRyhEnCNL 
+Clave: F,x&oP         CPU: 24     Mensaje: iWpixjMXm 
+Clave: t,lyv&         CPU: 20     Mensaje: ieXvQUrJFPlp 
+Clave: t,nSU*         CPU: 20     Mensaje: dwQT\Dyku 
+Clave: $,C^@K         CPU: 1     Mensaje: FHxV[PQHp 
+Clave: z,Pn-C         CPU: 22     Mensaje: [SGV[QiPb 
+Clave: =,SXia         CPU: 6     Mensaje: zOe_ocSKT 
+Clave: =,Z{Ko         CPU: 6     Mensaje: [bKoFOAm^ 
+Clave: 5-!6(V         CPU: 12     Mensaje: Eg^Laz\Bv 
+Clave: h-)rb+         CPU: 16     Mensaje: Szo[y]`TY 
+Clave: 2-}V:U         CPU: 11     Mensaje: UtwYPVesl 
+Clave: n-1vrd         CPU: 18     Mensaje: kPnIIzwqX 
+Clave: b-`Tti         CPU: 14     Mensaje: DtNxkcBkq 
+Clave: ^-2Ns^         CPU: 8     Mensaje: LFRYYLwqz 
+Clave: =-9P5x         CPU: 6     Mensaje: ygL[VPLob_ 
+Clave: L-6j~j         CPU: 26     Mensaje: tyhlpOaLz 
+Clave: 5-ak2R         CPU: 12     Mensaje: iyTnEUQaP 
+Clave: q-b}4,         CPU: 19     Mensaje: qrPCR`zNj 
+Clave: h-7eE%         CPU: 16     Mensaje: `nPRVlPYr 
+Clave: *-hhmR         CPU: 3     Mensaje: ^`V`GgiqXi 
+Clave: 2-o`tV         CPU: 11     Mensaje: NkMgsSGrq 
+Clave: I-mc19         CPU: 25     Mensaje: ECLKexnIK 
+Clave: =-B,^%         CPU: 6     Mensaje: fMZWHdL^e 
+Clave: b-sY-,         CPU: 14     Mensaje: L^EfAMyg\h 
+Clave: $-z*),         CPU: 1     Mensaje: xtxBPbYtmV 
+Clave: --yOys         CPU: 4     Mensaje: ]xMqJg^fl 
+Clave: L. +yl         CPU: 26     Mensaje: A\\UBPmrP 
+Clave: z.%<tM         CPU: 22     Mensaje: y^mvsithI 
+Clave: :.$HW6         CPU: 5     Mensaje: ]mawZdPBs` 
+Clave: 5.-'J6         CPU: 12     Mensaje: DexoXnls[ 
+Clave: O./>PW         CPU: 27     Mensaje: xhlCIxKdt 
+Clave: $.=1ia         CPU: 1     Mensaje: ^suF[_zKD 
+Clave: *.4R|`         CPU: 3     Mensaje: SdeYF]`My 
+Clave: R._*1{         CPU: 28     Mensaje: IkuHEeErx 
+Clave: C.qW3=         CPU: 23     Mensaje: kTzRw_kYc 
+Clave: O.uKL5         CPU: 27     Mensaje: ZYCMlwIPfA 
+Clave: C.xv .         CPU: 23     Mensaje: F]eNTFxOi 
+Clave: I.u-}9         CPU: 25     Mensaje: MiDSQ`wAI 
+Clave: k.FKJS         CPU: 17     Mensaje: `ZTK`DLkY 
+Clave: F.D)?+         CPU: 24     Mensaje: eMKTgd^Ip 
+Clave: 8.z0hT         CPU: 13     Mensaje: opLCZXXvH 
+Clave: $.E'kR         CPU: 1     Mensaje: aIgAWBFjw 
+Clave: ^.RWdl         CPU: 8     Mensaje: pDvZPIrwC 
+Clave: b.NW?G         CPU: 14     Mensaje: gcpzeeQ`C 
+Clave: F.Z$h6         CPU: 24     Mensaje: UFRe_KIUX 
+Clave: {/'P?O         CPU: 9     Mensaje: YHti]YlDxv 
+Clave: :/-h2{         CPU: 5     Mensaje: CxnvW[sb` 
+--------------------------------------------------------------------------
+mpirun noticed that process rank 14 with PID 75672 on node alumnos exited on signal 15 (Terminated).
+--------------------------------------------------------------------------
+aqui solo alfanumerioc
