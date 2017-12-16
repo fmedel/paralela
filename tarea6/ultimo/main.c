@@ -48,7 +48,7 @@ int main(int argc, char** argv)
     for(i=inicio; i<fin; i++)
     {
 
-        for(j=31; j<62; j++)
+        for(j=30; j<31; j++)
         {
 
             for(k=0; k<62; k++)

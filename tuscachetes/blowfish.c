@@ -25,6 +25,7 @@ char* hex2str(byte* hex, unsigned int len) {
     }
     buf[largo] = '\0';
     free(app);
+
     return buf;
 }
 
@@ -66,6 +67,6 @@ char* descifrar(char* llave, char* mensaje) {
     texto = (char *) calloc(largo + 1, sizeof (char));
 
     BF_cbc_encrypt(cifrado, (byte *) texto, largo, &clave, iv, BF_DECRYPT);
-	free(cifrado); 
-	return texto;
+
+    return texto;
 }
