@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------
+[[54513,1],17]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: alumnos
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Clave: Gahgy3         CPU: 21     Mensaje: [KlIEiUyo 
+Clave: QaGGYz         CPU: 26     Mensaje: IpT`ISQgb 
+Clave: sb3Rqx         CPU: 14     Mensaje: nTvfGAthU 
+Clave: sb5al8         CPU: 14     Mensaje: `\e^ilN[O 
+Clave: sb7IWV         CPU: 14     Mensaje: E`f`sVbfx 
+Clave: WbibVM         CPU: 29     Mensaje: tQmsc^z]q 
+Clave: 4bBvpD         CPU: 2     Mensaje: kpSDSpvHKH 
+Clave: gbIE0m         CPU: 8     Mensaje: ^rVZQbLdco 
+Clave: Rafqk9         CPU: 26     Mensaje: lOEMZrFQt 
+Clave: Tao78J         CPU: 27     Mensaje: cgd]`zMYo 
+Clave: faUUxD         CPU: 7     Mensaje: Iqs_Cm`iq 
+Termine
+Termine
+Clave: xbVNJ3         CPU: 16     Mensaje: NTUQ`NGh_^ 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Clave: vbNPpV         CPU: 15     Mensaje: bc_TvrlVB 
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
+Termine
