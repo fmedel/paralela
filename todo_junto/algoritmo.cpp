@@ -645,7 +645,7 @@ int aStarSearch(int grid[ROW][COL], Pair src, Pair dest,char resultado_camino[RO
 
 
 // Driver program to test above function
-int funcion_main(int grid[ROW][COL],int inicio_fila,int inicio_columna,int fin_fila,int fin_columna,char resultado_camino[ROW)])
+int funcion_main(int grid[ROW][COL],int inicio_fila,int inicio_columna,int fin_fila,int fin_columna,char resultado_camino[ROW])
 {
     // Source is the left-most bottom-most corner
     Pair src = make_pair(inicio_fila, inicio_columna);
