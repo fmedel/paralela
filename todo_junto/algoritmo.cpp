@@ -2,8 +2,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ROW 200//9
-#define COL 200//10
+#define ROW 10240//9
+#define COL 10240//10
 
 // Creating a shortcut for int, int pair type
 typedef pair<int, int> Pair;
@@ -62,7 +62,7 @@ double calculateHValue(int row, int col, Pair dest)
 
 // A Utility Function to trace the path from the source
 // to destination
-void tracePath(cell cellDetails[][COL], Pair dest,char resultado_camino[8000])
+void tracePath(cell cellDetails[][COL], Pair dest,char resultado_camino[ROW])
 {
     //printf ("\nThe Path is ");
     int row = dest.first;
@@ -101,7 +101,7 @@ void tracePath(cell cellDetails[][COL], Pair dest,char resultado_camino[8000])
 // A Function to find the shortest path between
 // a given source cell to a destination cell according
 // to A* Search Algorithm
-int aStarSearch(int grid[ROW][COL], Pair src, Pair dest,char resultado_camino[8000])
+int aStarSearch(int grid[ROW][COL], Pair src, Pair dest,char resultado_camino[ROW])
 {
     //printf("a0\n");
     // If the source is out of range
@@ -645,25 +645,8 @@ int aStarSearch(int grid[ROW][COL], Pair src, Pair dest,char resultado_camino[80
 
 
 // Driver program to test above function
-int funcion_main(int grid[800][200],int inicio_fila,int inicio_columna,int fin_fila,int fin_columna,char resultado_camino[8000])
+int funcion_main(int grid[ROW][COL],int inicio_fila,int inicio_columna,int fin_fila,int fin_columna,char resultado_camino[ROW)])
 {
-  //printf("entrp en funcion_main\n");
-    /* Description of the Grid-
-     1--> The cell is not blocked
-     0--> The cell is blocked    */
-/*    int grid[ROW][COL] =
-    {
-        { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
-        { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 },
-        { 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
-        { 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 },
-        { 1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
-        { 1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
-        { 1, 0, 0, 0, 0, 1, 0, 0, 0, 1 },
-        { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
-        { 1, 1, 1, 0, 0, 0, 1, 0, 0, 1 },
-        { 1, 1, 1, 0, 0, 0, 1, 0, 0, 1 }
-    };*/
     // Source is the left-most bottom-most corner
     Pair src = make_pair(inicio_fila, inicio_columna);
     // Destination is the left-most top-most corner
@@ -672,6 +655,5 @@ int funcion_main(int grid[800][200],int inicio_fila,int inicio_columna,int fin_f
     if (contador==1){
       return 1;
     }
-    //printf("salio de funcion_main\n");
     return(0);
 }

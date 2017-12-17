@@ -293,7 +293,6 @@ void leer(char *nombre){
 }
 
 void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int seccion_columna){
-  //printf("enrtro en cargar datos\n");
   char cadena[MAX_CARRACTERES];
   int fila=0;
   int columna=0;
@@ -305,12 +304,10 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
     if(contador<5){continue;}
     if (strcmp(BLANCO,cadena)==0) {
         datos[fila][columna]=BLANCO_VALOR;
-        //pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,true);
       }
       else{
          if (strcmp(NEGRO,cadena)==0) {
            datos[fila][columna]=NEGRO_VALOR;
-          // pasar_a_bd_laberinto(seccion_fila,seccion_columna,fila,columna,false);
          }
          else{
            if (contador==40005) {
@@ -329,7 +326,6 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
      }
   }
   fe.close();
-  //printf("Salir cargar_datos\n");
 }
 
 void mostrar_datos(int datos[DATOS][DATOS]){
