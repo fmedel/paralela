@@ -95,17 +95,15 @@ int main(int argc, char const *argv[]) {
   seccion_fila=3;
   int x,y;
   #pragma omp parallel for private(y,nombre_2,datos)
-  for(x=3; x < 129; x++)
-  {
-          for(y=1; y < 2; y++)
-          {
-              sprintf(nombre_2, "datos/%d-%d", x, y);
-              cargar_datos(datos,nombre_2,x,y);
-              int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
-              buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
-              //mostrar_datos(datos);
-              //buscar_camino_pares_diagonal(datos,x,y);
-          }
+  for(x=1; x < 52; x++){
+    for(y=1; y < 52; y++){
+        sprintf(nombre_2, "datos/%d-%d", x, y);
+        cargar_datos(datos,nombre_2,x,y);
+        int cuanto_datos= buscar_abierto(datos,vector_blancos_fila,vector_blancos_columna,seccion_fila,seccion_columna);
+        buscar_camino_pares(vector_blancos_fila,vector_blancos_columna,cuanto_datos,datos,seccion_fila, seccion_columna);
+        //mostrar_datos(datos);
+        //buscar_camino_pares_diagonal(datos,x,y);
+    }
   }
 
   end = clock();
@@ -331,7 +329,7 @@ void leer(char *nombre){
 }
 
 void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int seccion_columna){
-  //printf("enrtro en cargar datos\n");
+  printf("enrtro en cargar datos\n");
   char cadena[MAX_CARRACTERES];
   int fila=0;
   int columna=0;
@@ -367,7 +365,7 @@ void cargar_datos(int datos[DATOS][DATOS], char *nombre,int seccion_fila, int se
      }
   }
   fe.close();
-  //printf("Salir cargar_datos\n");
+  printf("Salir cargar_datos\n");
 }
 
 void mostrar_datos(int datos[DATOS][DATOS]){
@@ -389,214 +387,150 @@ void mostrar_datos(int datos[DATOS][DATOS]){
 int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DATOS],int vector_blancos_columna[MAX_COLUMNA_DATOS], int seccion_fila, int seccion_columna){
   printf("entro en buscar abierto\n");
   int contador=0;
-  if (seccion_fila<3 or seccion_columna>126) {
-    printf("Error en buscar_abierto\n");
-  } else {
-    switch (seccion_columna) {
-      case 1 :
-        if (seccion_fila==3) {
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-                    vector_blancos_fila[contador]=DATOS-1;
-                    vector_blancos_columna[contador]=c;
-                    //printf("variable(columna 1) -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][DATOS-1]==1) {
-                    vector_blancos_fila[contador]=f;
-                    vector_blancos_columna[contador]=DATOS-1;
-                    //printf("ariable(fila) 1 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-        } else if(seccion_fila>3 and seccion_fila<128){
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-                    vector_blancos_fila[contador]=DATOS-1;
-                    vector_blancos_columna[contador]=c;
-                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[0][c]==1) {
-                    vector_blancos_fila[contador]=0;
-                    vector_blancos_columna[contador]=c;
-                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][DATOS-1]==1) {
-                    vector_blancos_fila[contador]=f;
-                    vector_blancos_columna[contador]=DATOS-1;
-                    //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-        }else if(seccion_fila==128){
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[0][c]==1) {
-                    vector_blancos_fila[contador]=0;
-                    vector_blancos_columna[contador]=c;
-                    //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][DATOS-1]==1) {
-                    vector_blancos_fila[contador]=f;
-                    vector_blancos_columna[contador]=DATOS-1;
-                    //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-        }
-        else{printf("Error\n");}
-        break;
-      case 126:
-        if (seccion_fila==3) {
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-              vector_blancos_fila[contador]=DATOS-1;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][0]==1) {
-              vector_blancos_fila[contador]=f;
-              vector_blancos_columna[contador]=0;
-              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-        } else if(seccion_fila>3 and seccion_fila<128){
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-              vector_blancos_fila[contador]=DATOS-1;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }
-            else{continue;}
-          }
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[0][c]==1) {
-              vector_blancos_fila[contador]=0;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][0]==1) {
-              vector_blancos_fila[contador]=f;
-              vector_blancos_columna[contador]=0;
-              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-        }else if (seccion_fila==128){
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[0][c]==1) {
-              vector_blancos_fila[contador]=0;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][0]==1) {
-              vector_blancos_fila[contador]=f;
-              vector_blancos_columna[contador]=0;
-              //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-        }
-        else{printf("Error en buscar camino\n");}
-          break;
-      case 127:
-        printf("Error en buscar camino\n");
-        break;
-      case 128:
-        printf("Error en buscar camino\n");
-        break;
-      default:
-        if (seccion_fila==3) {
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-              vector_blancos_fila[contador]=DATOS-1;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][0]==1) {
-              vector_blancos_fila[contador]=f;
-              vector_blancos_columna[contador]=0;
-            //  printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][DATOS-1]==1) {
-                    vector_blancos_fila[contador]=f;
-                    vector_blancos_columna[contador]=DATOS-1;
-                    //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-                    contador++;
-            }else{continue;}
-          }
-        } else if(seccion_fila>3 and seccion_fila<128){
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[DATOS-1][c]==1) {
-              vector_blancos_fila[contador]=DATOS-1;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int c = 0; c < DATOS; c++) {
-            if (datos[0][c]==1) {
-              vector_blancos_fila[contador]=0;
-              vector_blancos_columna[contador]=c;
-              //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][0]==1) {
-              vector_blancos_fila[contador]=f;
-              vector_blancos_columna[contador]=0;
-              //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
-              contador++;
-            }else{continue;}
-          }
-          for (int f = 0; f <DATOS; f++) {
-            if (datos[f][DATOS-1]==1) {
-                vector_blancos_fila[contador]=f;
-                vector_blancos_columna[contador]=DATOS-1;
-                    //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+  switch (seccion_columna) {
+    case 1 :
+      if (seccion_fila==1) {
+        for (int c = 0; c < DATOS; c++) {
+            if (datos[DATOS-1][c]==1) {//fila 199 "X"
+                vector_blancos_fila[contador]=DATOS-1;
+                vector_blancos_columna[contador]=c;
+                //printf("variable(columna 1) -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
                 contador++;
             }else{continue;}
-          }
         }
-      else if (seccion_fila==128){
+        for (int f = 0; f <DATOS; f++) {// fila "X" 199
+          if (datos[f][DATOS-1]==1) {
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=DATOS-1;
+            //printf("ariable(fila) 1 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+      }
+      else if(seccion_fila>2 and seccion_fila<51){
         for (int c = 0; c < DATOS; c++) {
-          if (datos[0][c]==1) {
+          if (datos[DATOS-1][c]==1) {//199 "X"
+              vector_blancos_fila[contador]=DATOS-1;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) { //0 "X"
+              vector_blancos_fila[contador]=0;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][DATOS-1]==1) {//"X" 199
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=DATOS-1;
+              //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+      }
+      else if(seccion_fila==51){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) {//0 "X"
+              vector_blancos_fila[contador]=0;
+              vector_blancos_columna[contador]=c;
+              //printf("variable(columna) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][DATOS-1]==1) {// X 199
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=DATOS-1;
+              //printf("ariable(fila) 1,4 127 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+      }
+      else{printf("Error\n");}
+      break;
+    case 51:
+      if (seccion_fila==1) {
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[DATOS-1][c]==1) {//199 "x"
+            vector_blancos_fila[contador]=DATOS-1;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) {// "X"0
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+      }
+      else if(seccion_fila>1 and seccion_fila<51){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[DATOS-1][c]==1) {//199 "x"
+            vector_blancos_fila[contador]=DATOS-1;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }
+          else{continue;}
+        }
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) {//0 "X"
             vector_blancos_fila[contador]=0;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) {//"X"0
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+      }
+      else if (seccion_fila==51){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) {//0 "X"
+            vector_blancos_fila[contador]=0;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) {// X 0
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 126 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+      }
+      else{printf("Error en buscar camino\n");}
+      break;
+    default:
+      if (seccion_fila==1) {
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[DATOS-1][c]==1) { // 199 "X"
+            vector_blancos_fila[contador]=DATOS-1;
             vector_blancos_columna[contador]=c;
             //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
             contador++;
           }else{continue;}
         }
         for (int f = 0; f <DATOS; f++) {
-          if (datos[f][0]==1) {
+          if (datos[f][0]==1) {// "X" 0
             vector_blancos_fila[contador]=f;
             vector_blancos_columna[contador]=0;
             //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
@@ -604,7 +538,67 @@ int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DAT
           }else{continue;}
         }
         for (int f = 0; f <DATOS; f++) {
-          if (datos[f][DATOS-1]==1) {
+          if (datos[f][DATOS-1]==1) { // "X" 199
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=DATOS-1;
+              //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+      }
+      else if(seccion_fila>1 and seccion_fila<51){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[DATOS-1][c]==1) { // 199 "X"
+            vector_blancos_fila[contador]=DATOS-1;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) {// 0 "X"
+            vector_blancos_fila[contador]=0;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) {// X 0
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][DATOS-1]==1) { // "X" 199
+              vector_blancos_fila[contador]=f;
+              vector_blancos_columna[contador]=DATOS-1;
+              //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+              contador++;
+          }else{continue;}
+        }
+      }
+      else if (seccion_fila==51){
+        for (int c = 0; c < DATOS; c++) {
+          if (datos[0][c]==1) { // 0 "X"
+            vector_blancos_fila[contador]=0;
+            vector_blancos_columna[contador]=c;
+            //printf("variable(columna) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][0]==1) { // X 0
+            vector_blancos_fila[contador]=f;
+            vector_blancos_columna[contador]=0;
+            //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
+            contador++;
+          }else{continue;}
+        }
+        for (int f = 0; f <DATOS; f++) {
+          if (datos[f][DATOS-1]==1) { // "X" 199
               vector_blancos_fila[contador]=f;
               vector_blancos_columna[contador]=DATOS-1;
                   //printf("variable(fila) 2-125 -> %d-%d\n",vector_blancos_fila[contador],vector_blancos_columna[contador] );
@@ -613,7 +607,7 @@ int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DAT
         }
       }
       else{printf("Error en buscar camino\n");}
-        break;
+      break;
     }
   }
   return contador;
