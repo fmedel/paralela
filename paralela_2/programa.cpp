@@ -609,7 +609,6 @@ int buscar_abierto(int datos[DATOS][DATOS], int vector_blancos_fila[MAX_FILA_DAT
       else{printf("Error en buscar camino\n");}
       break;
     }
-  }
   return contador;
   printf("salio en buscar abierto\n");
 }
